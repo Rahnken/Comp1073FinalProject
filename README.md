@@ -46,7 +46,8 @@ Database - MySQL
 
 ## Project Design
 
-![image of project design](https://imgur.com/a/5qurX3p)
+![image of project design](/img/BlockDiagramJSFolder.jpg)
+
 By: Michael Caldwell
 
 ## Work Assignments
