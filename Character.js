@@ -5,6 +5,13 @@ Purpose: Creation and validation of objects.
  */
 
 class Character {
+    _name; _race; _charClass; _background; _level;
+    _traits = new Trait();
+    _skills;
+    _equipment = new Equipment();
+    _senses; _languages; _spells;
+
+
     constructor(name, race, charClass, background, level, traits, skills, equipment, senses, languages, spells) {
         this._name = name;
         this._race = race;
@@ -107,3 +114,6 @@ class Character {
         this._spells = value;
     }
 }
+
+
+
