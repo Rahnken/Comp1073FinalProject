@@ -46,7 +46,7 @@ Database - MySQL
 
 ## Project Design
 
-![image of project design](/img/BlockDiagramJSFolder.jpg)
+![image of project design](./img/BlockDiagramJSFolder.jpg)
 
 By: Michael Caldwell
 
