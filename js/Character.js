@@ -5,22 +5,33 @@ Purpose: Creation and validation of objects.
  */
 
 class Character {
+    //General descriptions
     _name; _race; _charClass; _background; _level;
-    _traits = new Trait();
+
+    _strength; _dexterity; _constitution; _intelligence; _wisdom; _charisma; //Traits
     _skills;
-    _equipment = new Equipment();
+    _equipment; //Equipment string for Light, Medium, Heavy option
     _senses; _languages; _spells;
 
-
-    constructor(name, race, charClass, background, level, traits, skills, equipment, senses, languages, spells) {
+    constructor(name, race, charClass, background, level, strength, dexterity, constitution, intelligence, wisdom, charisma, skills, equipment, senses, languages, spells) {
         this._name = name;
         this._race = race;
         this._charClass = charClass;
         this._background = background;
         this._level = level;
-        this._traits = traits;
+
+        //Traits
+        this._strength = strength;
+        this._dexterity = dexterity;
+        this._constitution = constitution;
+        this._intelligence = intelligence;
+        this._wisdom = wisdom;
+        this._charisma = charisma;
         this._skills = skills;
+
+        //Equipment string for Light, Medium, Heavy option
         this._equipment = equipment;
+
         this._senses = senses;
         this._languages = languages;
         this._spells = spells;
@@ -66,12 +77,52 @@ class Character {
         this._level = value;
     }
 
-    get traits() {
-        return this._traits;
+    get strength() {
+        return this._strength;
     }
 
-    set traits(value) {
-        this._traits = value;
+    set strength(value) {
+        this._strength = value;
+    }
+
+    get dexterity() {
+        return this._dexterity;
+    }
+
+    set dexterity(value) {
+        this._dexterity = value;
+    }
+
+    get constitution() {
+        return this._constitution;
+    }
+
+    set constitution(value) {
+        this._constitution = value;
+    }
+
+    get intelligence() {
+        return this._intelligence;
+    }
+
+    set intelligence(value) {
+        this._intelligence = value;
+    }
+
+    get wisdom() {
+        return this._wisdom;
+    }
+
+    set wisdom(value) {
+        this._wisdom = value;
+    }
+
+    get charisma() {
+        return this._charisma;
+    }
+
+    set charisma(value) {
+        this._charisma = value;
     }
 
     get skills() {
