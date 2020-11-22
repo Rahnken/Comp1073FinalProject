@@ -13,7 +13,9 @@ function randomSelector(input, output){
     var choices = dropDown.options;
 
     //remove the Choose option from the choices
-    choices.remove(0);
+    if (choices[0].text.startsWith("Choose")) {
+        choices.remove(0);
+    }
 
     //randomly get number for determining the index from the dropdown array
     let choiceSelector = Math.floor(Math.random() * choices.length);
