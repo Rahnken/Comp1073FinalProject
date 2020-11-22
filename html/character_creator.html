@@ -7,8 +7,21 @@ Main Author:  Stephanie Holly Bedard, 200443133
 <head>
     <meta charset="UTF-8">
     <title>Character Creation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
+
+</div>
 <body>
+<!--Added By Eric for the Nav Bar-->
+<div id="nav-placeholder"> 
+    <script> window.onload = function(){
+        $.get("nav.html", function(data){
+            $("#nav-placeholder").html(data);
+        })
+    }</script>
+</div>
 <h1>Character Creator</h1>
 <form id="form">
     <!--RACE SELECTION-->
