@@ -9,10 +9,20 @@ Main Author:  Stephanie Holly Bedard, 200443133
     <title>Character Creation</title>
 </head>
 <body onload="startup()">
+
+<!--Added By Eric for the Nav Bar-->
+<div id="nav-placeholder">
+    <script> window.onload = function(){
+        $.get("nav.html", function(data){
+            $("#nav-placeholder").html(data);
+        })
+    }</script>
+</div>
+
 <h1>Character Creator</h1>
 <form id="form">
     <!--RACE SELECTION-->
-    <fieldset>
+    <fieldset id="race_selection">
         <label for="race_input">Select Your Character's Race:</label>
             <select id="race_input" onchange="fillResult('race_input','race_result')">
                 <option selected disabled>Choose Race...</option>
@@ -23,7 +33,7 @@ Main Author:  Stephanie Holly Bedard, 200443133
     </fieldset>
 
     <!--GENDER SELECTION-->
-    <fieldset>
+    <fieldset id="gender_selection">
         <label for="gender_input">Select Your Character's Gender:</label>
             <select id="gender_input" onchange="fillResult('gender_input','gender_result')">
                 <option selected disabled>Choose Gender...</option>
@@ -34,14 +44,14 @@ Main Author:  Stephanie Holly Bedard, 200443133
     </fieldset>
 
     <!--NAME SELECTION-->
-    <fieldset>
+    <fieldset id="name_selection">
         <label for="input_name">Enter Your Character's Name:</label>
             <input type="text" id="input_name" name="input_name" placeholder="Enter Character Name">
         <button id="btn_name" onclick="generateName()">Generate Random Name</button><br><br>
     </fieldset>
 
     <!--CLASS SELECTION-->
-    <fieldset>
+    <fieldset id="class_selection">
         <label for="class_input">Select Your Character's Class:</label>
         <select id="class_input" onchange="fillResult('class_input','class_result')">
             <option selected disabled>Choose Class...</option>
@@ -52,7 +62,7 @@ Main Author:  Stephanie Holly Bedard, 200443133
     </fieldset>
 
     <!--BACKGROUND SELECTION-->
-    <fieldset>
+    <fieldset id="background_selection">
         <label for="background_input">Select Your Character's Background:</label>
             <select id="background_input" onchange="fillResult('background_input','background_result')">
                 <option selected disabled>Choose background...</option>
@@ -64,7 +74,7 @@ Main Author:  Stephanie Holly Bedard, 200443133
     </fieldset>
 
     <!--BACKGROUND DETAILS-->
-    <fieldset>
+    <fieldset id="background_details">
         <p>Roll Dice For Background Details:</p>
 
         <!--Roll for Specialty and Results-->
