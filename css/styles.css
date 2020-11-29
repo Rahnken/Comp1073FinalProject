@@ -1,1 +1,87 @@
 /* Main Author Eric Donnelly 200433532*/
+/*********************** Main Styles Start here ********************************/
+h1{
+    margin: 0px;
+    font-family: "Satisfy", Arial, sans-serif;
+    color: #830a24;
+    font-size: 3rem;
+    text-align:center;
+}
+p{
+    font-family: "Satisfy", Arial, sans-serif;
+    margin: 1em auto;
+    color: #830a24;
+    font-size: 1rem;
+    clear:both;
+}
+
+body {
+    font-size: 100%;
+    font-family: Helvetica, Arial, sans-serif;
+    color: #333;
+    background-color: #333;
+    padding: 0;
+    margin: 0;
+}
+
+header {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+}
+
+
+/*********************** Main Styles End here ********************************/
+/************** Nav Styles Starting Here ****************************/
+nav{
+    background-color: #830a24;
+    width:60%;
+    top:0;
+
+}
+ul{
+    list-style-type:none;
+    padding-left:0;
+    margin-left: 5px;
+}
+li{
+    display:inline-block;
+}
+nav a{
+    text-decoration:none;
+    color:#242424;
+    font-weight: 600;
+    font-family: "Helvetica", sans-serif;
+    padding:15px;
+    text-align:center;
+}
+nav a:hover{
+    background-color:#424874;
+    color:#fff;
+}
+
+/********************** Nav Style Ends Here ************************************/
+
+/*********************** Form Styles Start here ********************************/
+form {
+    width: 70%;
+    background-color: #EFE9DD;
+    padding: 10px;
+    margin: 10px auto;
+}
+
+fieldset {
+    border: 1px solid #693007;
+    margin: 1em;
+}
+label {
+    color: #005252;
+}
+button {
+    background-color: darkred;
+    color: white;
+    padding: 1rem;
+    text-align: center;
+
+}
+/*********************** Form Styles End here ********************************/
