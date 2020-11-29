@@ -128,6 +128,22 @@ function generateName(){
     //surname
     const surT = [];
 
+    //HALF-ORC NAMES
+    //female
+    const femHO = ["Baggi", "Emen", "Engong", "Kansif", "Myev", "Neega", "Ovak", "Ownka", "Shautha", "Sutha", "Vola", "Volen", "Yevelda"];
+    //male
+    const maleHO = ["Dench", "Feng", "Gell", "Henk", "Holg", "Imsh", "Keth", "Krusk", "Mhurren", "Ront", "Shump", "Thokk"];
+    //surname
+    const surHO = [];
+
+    //HALF-ELF NAMES
+    //female
+    const femHE = ["Adrie", "Althaea", "Anastrianna", "Andraste", "Antinua", "Bethrynna", "Birel", "Caelynn", "Drusilia", "Enna", "Felosial", "Ielenia", "Jelenneth", "Keyleth", "Leshanna", "Lia", "Meriele", "Mialee", "Naivara", "Quelenna", "Quillathe", "Sariel", "Shanairra", "Shava", "Silaqui", "Theirastra", "Thia", "Vadania", "Valanthe", "Xanaphia","Amafrey", "Betha", "Cefrey", "Kethra", "Mara", "Olga", "Silifrey", "Westra"];
+    //male
+    const maleHE = ["Adran", "Aelar", "Aramil", "Arannis", "Aust", "Beiro", "Berrian", "Carric", "Enialis", "Erdan", "Erevan", "Galinndan", "Hadarai", "Heian", "Himo", "Immeral", "Ivellios", "Laucian", "Mindartis", "Paelias", "Peren", "Quarion", "Riardon", "Rolen", "Soveliss", "Thamior", "Tharivol", "Theren", "Varis","Ander", "Blath", "Bran", "Frath", "Geth", "Lander", "Luth", "Malcer", "Stor", "Taman", "Urth"];
+    //surname
+    const surHE = ["Amakiir (Gemflower)", "Amastacia (Starflower)", "Galanodel (Moonwhisper)", "Holimion (Diamonddew)", "Ilphelkiir (Gemblossom)", "Liadon (Silverfrond)", "Meliamne (Oakenheel)", "Naïlo (Nightbreeze)", "Siannodel (Moonbrook)", "Xiloscient (Goldpetal)","Brightwood", "Helder", "Hornraven", "Lackman", "Stormwind", "Windrivver"];
+
 
     //get the gender
     var gender = document.getElementById('gender_result').value;
@@ -178,6 +194,18 @@ function generateName(){
         } else var firstName = femT;
         var surname = surT;
     }
+    else if (race.toLowerCase() == "half-orc"){
+        if (gender.toLowerCase() == "male"){
+            var firstName = maleHO;
+        } else var firstName = femHO;
+        var surname = surHO;
+    }
+    else if (race.toLowerCase() == "half-elf"){
+        if (gender.toLowerCase() == "male"){
+            var firstName = maleHE;
+        } else var firstName = femHE;
+        var surname = surHE;
+    }
 
     //randomly generate name:
 
@@ -222,9 +250,8 @@ function roll(diceType, output){
 
 function getDetails(){
 
-    //get the background type
+    //get the values of the feature, specialty, trait, ideals, bond, flaw rolls
     let background = document.getElementById('background_result').value;
-
     let specialty = document.getElementById('specialty').value;
     let trait = document.getElementById('trait').value;
     let ideal = document.getElementById('ideal').value;
@@ -232,12 +259,6 @@ function getDetails(){
     let flaw = document.getElementById('flaw').value;
 
 
-    let trait_result2 = document.getElementById('trait_result').innerHTML;
-    let ideal_result2 = document.getElementById('ideal_result').innerHTML;
-    let bond_result2 = document.getElementById('bond_result').innerHTML;
-    let flaw_result2 = document.getElementById('flaw_result').innerHTML;
-
-    //get feature, specialty, trait, ideals, bond, flaw
     let backgroundsArray;
     let index;
     let feature_result;
@@ -247,10 +268,8 @@ function getDetails(){
     let bond_result;
     let flaw_result;
 
-
-
-
-
+    /*use fetch to get from the json file to get the feature, specialty, trait, ideal, bond, and flaw details according to the values
+    inputted by user or randomly rolled and selected*/
     fetch("../json/backgrounds.json")
         .then(res => res.json())
         .then(data => backgroundsArray = data.backgrounds)
