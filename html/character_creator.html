@@ -7,15 +7,23 @@ Main Author:  Stephanie Holly Bedard, 200443133
 <head>
     <meta charset="UTF-8">
     <title>Character Creation</title>
+    <script type="text/javascript" src="../js/char_creator.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
-<body onload="startup()">
+<body >
 
-<!--Added By Eric for the Nav Bar-->
+
+<!--Added By Eric to load data for the Form using Jquery-->
 <div id="nav-placeholder">
     <script> window.onload = function(){
         $.get("nav.html", function(data){
             $("#nav-placeholder").html(data);
         })
+        $(document).ready(function () {
+            startup();})
+
     }</script>
 </div>
 
@@ -117,6 +125,6 @@ Main Author:  Stephanie Holly Bedard, 200443133
     </fieldset>
 </form>
 
-<script type="text/javascript" src="../js/char_creator.js"></script>
+
 </body>
 </html>

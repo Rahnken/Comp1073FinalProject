@@ -64,7 +64,7 @@ nav a:hover{
 
 /*********************** Form Styles Start here ********************************/
 form {
-    width: 70%;
+    width: 80%;
     background-color: #EFE9DD;
     padding: 10px;
     margin: 10px auto;
@@ -78,9 +78,10 @@ label {
     color: #005252;
 }
 button {
+    font-size: smaller;
     background-color: darkred;
     color: white;
-    padding: 1rem;
+    padding: 1em;
     text-align: center;
 
 }
