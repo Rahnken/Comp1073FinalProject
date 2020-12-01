@@ -8,20 +8,13 @@ Main Author:  Stephanie Holly Bedard, 200443133
 
 //creates the initial page configurations
 function startup() {
-    console.log("This function started");
-    //get values for the Race dropdown
-    //initialize variable to store race data in
-    /*//connect to API to retrieve race data
-    //convert/parse api data to json
-    //get the race data needed from data array and store in variable
-    //create a dropdown with each race name from the race array as an option
-    */
 
-    var racesArray;
-    fetch('https://www.dnd5eapi.co/api/races')
-        .then(res => res.json())
-        .then(data => racesArray = data.results)
-        .then(() => racesArray.forEach(function(race){createDropdown(race,'race_input')}))
+    var racesArray;//initialize variable to store race data in
+    //get values for the Race dropdown
+    fetch('https://www.dnd5eapi.co/api/races')//connect to API to retrieve race data
+        .then(res => res.json())//convert/parse api data to json
+        .then(data => racesArray = data.results) //get the race data needed from data array and store in variable
+        .then(() => racesArray.forEach(function(race){createDropdown(race,'race_input')})) //create a dropdown with each race name from the race array as an option
 
     //get values for the Gender dropdown
     const gendersArray = [{name:"Female"},{name: "Male"}];  //declare array with gender types, with json format
@@ -65,7 +58,7 @@ function stopSubmit(){
 /*Chooses a random option from the dropdown as the selected option,
  then outputs the resulting selected option to the corresponding result box*/
 function randomSelector(input, output){
-    //stop page from autosubmitting
+    //stop page from auto submitting
     stopSubmit();
     //get the dropdown
     var dropDown = document.getElementById(input);

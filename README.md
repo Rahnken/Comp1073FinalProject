@@ -81,7 +81,7 @@ By: Michael Caldwell
 ##### Here’s a list of our currently planned features:
 - [ ] Home (landing page)
 - [ ] Login page (html w/ JS)
-- [ ] Registration Page
+- [x] Registration Page
 - [ ] Character Creation  (html w/ JS)
 - [ ] Output page w/ print  (html w/ JS)
 - [ ] Stylesheet
@@ -93,10 +93,10 @@ By: Michael Caldwell
 
 - [ ] Responsible for the code which allows the user to create characters
     - Some fields generated with dice roll, others with dropdown menu
-- Character stat fields include:
-    - Name
-    - Race
-    - Class
+- [ ] Character stat fields include:
+    - Name 
+    - Race 
+    - Class  
     - Background
     - Level
     -Ability Scores 
@@ -137,10 +137,18 @@ If the user uses the randomizer tool, these input fields will be auto-populated 
     - develop test cases to check validation and outputs 
 - [ ] Validation
     - create/ implement  validation methods in character creator object
-- [ ] load/ save characters
-    - create methods to save characters for users and load saved characters for editing
+- [ ] Databases
+        - The user database and character database
+        - It will be a local database
+        - User table will have the 
+            -  primary key of UserID 
+            - foreign key of CharacterID
+            
+    *Users can have multiple characters, but characters can only have one user associated with them.* 
+
+
 ###### Lani Low
-- [ ] Login/ register pages
+- [x] Login/ register pages
     - Login page will have fields to input username and password
     - Register page will include form asking for 
         -username
@@ -151,14 +159,8 @@ If the user uses the randomizer tool, these input fields will be auto-populated 
     - Will be connected to a database
 - [ ] Images
     - I will draw images, maybe not that great
-- [ ] Databases
-    - The user database and character database
-    - It will be a local database
-    - User table will have the 
-        -  primary key of UserID 
-        - foreign key of CharacterID
-        
-         *Users can have multiple characters, but characters can only have one user associated with them.* 
+- [ ] load/ save characters
+        - create methods to save characters for users and load saved characters for editing
 
 ****
 ### References
