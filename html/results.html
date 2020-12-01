@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<!-- Main Author: Michael Caldwell, 200445010 !-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Temporary styles while Eric works on styles.css !-->
+    <style>
+        /*Temporary border style for easy div viewing*/
+        div{
+            border-style: solid;
+        }
+        /* Creates a more print friendly view */
+        div#printTarget{
+            background: white;
+            margin-left: 20%;
+            margin-right: 20%;
+            color:black;
+            padding-left: 3em;
+            padding-right:3em;
+        }
+
+        /*Fills the space between elements*/
+        .wrapper {
+            display:flex;
+            justify-content:space-between;
+        }
+
+        /* Horizontal list */
+        ul#Traits li{
+            display: block;
+
+        }
+        ul li{
+            font-weight: bold;
+        }
+        ul li p{
+            display: inline;
+            margin: 0;
+            padding: 0;
+            color: black;
+            font-weight: normal;
+        }
+
+        /*  */
+        ul#Traits li p{
+            display: flex;
+            margin: inherit;
+            padding: inherit;
+        }
+
+    </style>
+</head>
+<body>
+<div id="nav-placeholder">
+    <script> window.onload = function(){
+        $.get("nav.html", function(data){
+            $("#nav-placeholder").html(data);
+        })
+    }</script>
+</div>
+<h1>Home Page</h1>
+<div id="printTarget" >
+    <div class="wrapper">
+        <h2>Name: <span id="characterName">John Doe</span></h2>
+
+        <ul id="characterInfo">
+            <li>Class: <p id="characterClass">Assassin</p></li>
+            <li>Race: <p id="characterRace">Dragonborn</p></li>
+            <li>Gender: <p id="characterGender">Male</p></li>
+            <li>Level: <p id="characterLevel">1</p></li>
+        </ul>
+        
+    </div>
+    <div>
+        <ul id="Traits">
+            <li>Strength:
+                <p id="strengthBase">
+                    1
+                </p>
+                <p id="strengthMod">
+                    1
+                </p>
+            </li>
+            <li>Dexterity:
+                <p id="dexterityBase">
+                    1
+                </p>
+                <p id="dexterityMod">
+                    1
+                </p>
+            </li>
+            <li>Constitution:
+                <p id="constitutionBase">
+                    1
+                </p>
+                <p id="constitutionMod">
+                    1
+                </p>
+            </li>
+            <li>Intelligence:
+                <p id="intelligenceBase">
+                    1
+                </p>
+                <p id="intelligenceMod">
+                    1
+                </p>
+            </li>
+            <li>Wisdom:
+                <p id="wisdomBase">
+                    1
+                </p>
+                <p id="wisdomMod">
+                    1
+                </p>
+            </li>
+            <li>Charisma:
+                <p id="charismaBase">
+                    1
+                </p>
+                <p id="charismaMod">
+                    1
+                </p>
+            </li>
+        </ul>
+
+    </div>
+</div>
+</body>
+</html>
