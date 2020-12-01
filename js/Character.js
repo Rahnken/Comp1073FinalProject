@@ -30,11 +30,11 @@ class Character {
         this._skills = skills;
 
         //Equipment string for Light, Medium, Heavy option
-        this._equipment = equipment;
-
-        this._senses = senses;
-        this._languages = languages;
-        this._spells = spells;
+        // this._equipment = equipment;
+        //
+        // this._senses = senses;
+        // this._languages = languages;
+        // this._spells = spells;
     }
 
     get name() {
