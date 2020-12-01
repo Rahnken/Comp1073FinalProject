@@ -74,6 +74,7 @@ fieldset {
     border: 1px solid #693007;
     margin: 1em;
     display: flex;
+    flex-wrap: wrap;
 }
 label {
     color: #005252;
