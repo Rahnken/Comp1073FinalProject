@@ -212,16 +212,26 @@ function generateName(){
     //surname
     const surHE = ["Amakiir (Gemflower)", "Amastacia (Starflower)", "Galanodel (Moonwhisper)", "Holimion (Diamonddew)", "Ilphelkiir (Gemblossom)", "Liadon (Silverfrond)", "Meliamne (Oakenheel)", "Naïlo (Nightbreeze)", "Siannodel (Moonbrook)", "Xiloscient (Goldpetal)","Brightwood", "Helder", "Hornraven", "Lackman", "Stormwind", "Windrivver"];
 
+    //HALFLING NAMES
+    //female
+    const femHA = ["Andry", "Bree", "Callie", "Cora", "Euphemia", "Jillian", "Kithri", "Lavinia", "Lidda", "Merla", "Nedda", "Paela", "Portia", "Seraphina", "Shaena", "Trym", "Vani", "Verna"];
+    //male
+    const maleHA = [ "Alton", "Ander", "Cade", "Corrin", "Eldon", "Errich", "Finnan", "Garret", "Lindal", "Lyle", "Merric", "Milo", "Osborn", "Perrin", "Reed", "Roscoe", "Wellby"];
+    //surname
+    const surHA = ["Brushgather", "Goodbarrel", "Greenbottle", "Highhill", "Hilltopple", "Leagallow", "Tealeaf", "Thorngage", "Tosscobble", "Underbough"];
+
+
 
     //get the gender
-    var gender = document.getElementById('gender_result').innerHTML;
+    var gender = document.getElementById('gender_result').innerHTML.toLowerCase();
 
     //get the race
-    var race = document.getElementById('race_result').innerText;
+    var race = document.getElementById('race_result').innerText.toLowerCase();
 
     if (race == "" || gender == ""){
         alert("You must first select Gender and Race.");
     }
+
 
     //get which name arrays to use:
 
