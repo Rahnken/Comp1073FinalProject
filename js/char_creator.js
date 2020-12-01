@@ -8,8 +8,9 @@ Main Author:  Stephanie Holly Bedard, 200443133
 
 //creates the initial page configurations
 function startup() {
+    // alert("Startup is working!")
 
-    var racesArray;//initialize variable to store race data in
+    let racesArray;//initialize variable to store race data in
     //get values for the Race dropdown
     fetch('https://www.dnd5eapi.co/api/races')//connect to API to retrieve race data
         .then(res => res.json())//convert/parse api data to json
@@ -21,14 +22,14 @@ function startup() {
     gendersArray.forEach(function(gender){createDropdown(gender,'gender_input')})  //create a dropdown with each gender name from the gender array as an option
 
     //get values for the Class dropdown
-    var classesArray;
+    let classesArray;
     fetch('https://www.dnd5eapi.co/api/classes')
         .then(res => res.json())
         .then(data => classesArray = data.results)
         .then(() => classesArray.forEach(function(charClass){createDropdown(charClass,'class_input')}))
 
     //get values for Background dropdown
-    var backgroundsArray;
+    let backgroundsArray;
     fetch("../json/backgrounds.json") //retrieve data from json file
         .then(res => res.json()) //parse the data to json
         .then(data => backgroundsArray = data.backgrounds)  //store the required data portion in an array
@@ -61,10 +62,10 @@ function randomSelector(input, output){
     //stop page from auto submitting
     stopSubmit();
     //get the dropdown
-    var dropDown = document.getElementById(input);
+    let dropDown = document.getElementById(input);
 
     //get possible races from dropdown
-    var choices = dropDown.options;
+    let choices = dropDown.options;
 
     //remove the Choose option from the choices so that it's not included in the available choices
     if (choices[0].text.startsWith("Choose")) {
@@ -95,8 +96,8 @@ function roll(diceType, output){
 
 //Outputs the selected dropdown value to the corresponding result box
 function fillResult(input, output){
-    var dropDown = document.getElementById(input);
-    var result = dropDown.options[dropDown.selectedIndex].text;
+    let dropDown = document.getElementById(input);
+    let result = dropDown.options[dropDown.selectedIndex].text;
     document.getElementById(output).innerHTML=result;
 }
 
@@ -223,78 +224,107 @@ function generateName(){
 
 
     //get the gender
-    var gender = document.getElementById('gender_result').innerHTML.toLowerCase();
+    let gender = document.getElementById('gender_result').innerHTML.toLowerCase();
 
     //get the race
-    var race = document.getElementById('race_result').innerHTML.toLowerCase();
+    let race = document.getElementById('race_result').innerHTML.toLowerCase();
 
-    if (race == "" || gender == ""){
+    if (race === "" || gender === ""){
         alert("You must first select Gender and Race.");
     }
 
-
+    let firstName,surName;
     //get which name arrays to use:
+    switch(race+gender){
 
-    if (race.toLowerCase() == "dragonborn"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleDB;
-        }
-        else var firstName = femDB;
-        var surname = surDB;
-    }
-    else if (race.toLowerCase() == "dwarf"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleDW;
-        } else var firstName = femDW;
-        var surname = surDW;
-    }
-    else if (race.toLowerCase() == "elf"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleE;
-        } else var firstName = femE;
-        var surname = surE;
-    }
-    else if (race.toLowerCase() == "gnome"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleG;
-        } else var firstName = femG;
-        var surname = surG;
-    }
-    else if (race.toLowerCase() == "human"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleH;
-        } else var firstName = femH;
-        var surname = surH;
-    }
-    else if (race.toLowerCase() == "tiefling"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleT;
-        } else var firstName = femT;
-        var surname = surT;
-    }
-    else if (race.toLowerCase() == "half-orc"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleHO;
-        } else var firstName = femHO;
-        var surname = surHO;
-    }
-    else if (race.toLowerCase() == "half-elf"){
-        if (gender.toLowerCase() == "male"){
-            var firstName = maleHE;
-        } else var firstName = femHE;
-        var surname = surHE;
+        case 'dragonbornmale':
+             firstName = maleDB;
+            surName = surDB;
+            break;
+        case 'dragonbornfemale' :
+            firstName = femDB;
+            surName = surDB;
+            break;
+        case 'dwarfmale':
+            firstName = maleDW;
+            surName = surDW;
+            break;
+        case 'dwarffemale' :
+            firstName = femDW;
+            surName = surDW;
+            break;
+        case 'elfmale':
+            firstName = maleE;
+            surName =   surE;
+            break;
+        case 'elffemale':
+            firstName =femE;
+            surName  =  surE;
+            break;
+        case 'gnomemale':
+            firstName = maleG;
+            surName =   surG ;
+            break;
+        case 'gnomefemale':
+            firstName = femG;
+            surName = surG;
+            break;
+        case 'humanmale':
+            firstName = maleH;
+            surName = surH;
+            break;
+        case'humanfemale':
+            firstName = femH;
+            surName = surH;
+            break;
+        case 'tieflingmale':
+            firstName = maleT;
+            surName = surT;
+            break;
+        case 'tieflingfemale':
+            firstName = femT;
+            surName = surT;
+            break;
+        case 'half-orcmale':
+            firstName = maleHO;
+            surName = surHO;
+            break;
+        case 'half-orcfemale':
+            firstName = femHO;
+            surName = surHO;
+            break;
+        case'half-elfmale':
+            firstName = maleHE;
+            surName = surHE;
+            break;
+        case 'half-elffemale':
+            firstName = femHE;
+            surName = surHE;
+            break;
+        case 'halflingmale':
+            firstName = maleHA;
+            surName = surHA;
+                break;
+        case 'halflingfemale':
+            firstName = femHA;
+            surName = surHA;
+            break;
+
+            default:
+
+            return "didn't work";
     }
 
     //randomly generate name:
 
     //random number generator for determining the index of each name part
     let firstSelector = Math.floor(Math.random() * firstName.length);
-    let lastSelector = Math.floor(Math.random() * surname.length);
+    let lastSelector = Math.floor(Math.random() * surName.length);
 
     //randomly selecting names from the name array lists
     let randomName;
-    if (surname.length>0) {
-        randomName = firstName[firstSelector] + " " + surname[lastSelector];
+    if (surName.length>0) {
+        randomName = firstName[firstSelector] + " " + surName[lastSelector];
     }
     else randomName = firstName[firstSelector];
 
