@@ -107,7 +107,7 @@ function fillResult(input, output){
 function getDetails(){
 
     //get the values of the feature, specialty, trait, ideals, bond, flaw rolls
-    let background = document.getElementById('background_result').value;
+    let background = document.getElementById('background_result').innerHTML;
     let specialty = document.getElementById('specialty').value;
     let trait = document.getElementById('trait').value;
     let ideal = document.getElementById('ideal').value;
@@ -226,7 +226,7 @@ function generateName(){
     var gender = document.getElementById('gender_result').innerHTML.toLowerCase();
 
     //get the race
-    var race = document.getElementById('race_result').innerText.toLowerCase();
+    var race = document.getElementById('race_result').innerHTML.toLowerCase();
 
     if (race == "" || gender == ""){
         alert("You must first select Gender and Race.");
