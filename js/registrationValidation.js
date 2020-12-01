@@ -7,6 +7,8 @@
  * @author Lani Low
  *
  */
+
+
 function validateForm()
 {
     firstNameValidation();
@@ -22,6 +24,10 @@ function validateForm()
             emailValidation() === true;
 }
 
+/**
+ *
+ * @returns {boolean}
+ */
 function firstNameValidation() {
     let fname = document.forms["registrationForm"]["fname"].value;
 
