@@ -78,7 +78,7 @@ function randomSelector(input, output){
 
     //set the randomized option as the option selected in the dropdown then output result
     dropDown[choiceSelector].selected=true;
-    document.getElementById(output).value=randomSelection;
+    document.getElementById(output).innerHTML=randomSelection;
 }
 
 //Rolls the dice to create a random result
@@ -97,7 +97,7 @@ function roll(diceType, output){
 function fillResult(input, output){
     var dropDown = document.getElementById(input);
     var result = dropDown.options[dropDown.selectedIndex].text;
-    document.getElementById(output).value=result;
+    document.getElementById(output).innerHTML=result;
 }
 
 /*******************************************************************************************/
@@ -214,10 +214,10 @@ function generateName(){
 
 
     //get the gender
-    var gender = document.getElementById('gender_result').value;
+    var gender = document.getElementById('gender_result').innerHTML;
 
     //get the race
-    var race = document.getElementById('race_result').value;
+    var race = document.getElementById('race_result').innerText;
 
     if (race == "" || gender == ""){
         alert("You must first select Gender and Race.");

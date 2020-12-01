@@ -7,6 +7,9 @@ Main Author:  Stephanie Holly Bedard, 200443133
 <head>
     <meta charset="UTF-8">
     <title>Character Creation</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
 </head>
 <body >
 
@@ -32,8 +35,7 @@ Main Author:  Stephanie Holly Bedard, 200443133
                 <option selected disabled>Choose Race...</option>
             </select>
         <button id="btn_race" onclick="randomSelector('race_input','race_result')">Choose Random Race</button>
-        <label for="race_result">Selected Race = </label>
-            <input id = "race_result" type="text" placeholder="Enter Character Race"><br><br>
+        <p id = "race_result" ></p>
     </fieldset>
 
     <!--GENDER SELECTION-->
@@ -43,8 +45,8 @@ Main Author:  Stephanie Holly Bedard, 200443133
                 <option selected disabled>Choose Gender...</option>
             </select>
         <button id="btn_gender" onclick="randomSelector('gender_input','gender_result')">Choose Random Gender</button>
-        <label for="gender_result">Selected Gender = </label>
-            <input id = "gender_result" type="text" placeholder="Enter Character Gender"><br><br>
+
+        <p id = "gender_result" ></p>
     </fieldset>
 
     <!--NAME SELECTION-->
