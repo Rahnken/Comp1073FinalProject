@@ -137,17 +137,17 @@ function getDetails(){
         .then(data => backgroundsArray = data.backgrounds)
         .then(()=> index = backgroundsArray.findIndex(obj => obj.name==background))
         .then(()=> feature_result = backgroundsArray[index].feature)
-        .then(()=> document.getElementById('character_bio').innerHTML="Feature = "+feature_result)
+        .then(()=> document.getElementById('character_bio').innerHTML="Feature = "+feature_result+"<br/>")
         .then(()=> specialty_result = backgroundsArray[index].specialty[specialty])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Specialty = "+specialty_result)
+        .then(()=> document.getElementById('character_bio').innerHTML+="Specialty = "+specialty_result+"<br/>")
         .then(()=> trait_result = backgroundsArray[index].characteristics.trait[trait])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Trait = "+trait_result)
+        .then(()=> document.getElementById('character_bio').innerHTML+="Trait = "+trait_result+"<br/>")
         .then(()=> ideal_result = backgroundsArray[index].characteristics.ideal[ideal])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Ideal = "+ideal_result)
+        .then(()=> document.getElementById('character_bio').innerHTML+="Ideal = "+ideal_result+"<br/>")
         .then(()=> bond_result = backgroundsArray[index].characteristics.bond[bond])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Bond = "+bond_result)
+        .then(()=> document.getElementById('character_bio').innerHTML+="Bond = "+bond_result+"<br/>")
         .then(()=> flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Flaw = "+flaw_result)
+        .then(()=> document.getElementById('character_bio').innerHTML+="Flaw = "+flaw_result+"<br/>")
 
 
 
