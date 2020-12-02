@@ -79,6 +79,7 @@ fieldset {
 label {
     color: #005252;
 }
+
 button {
     font-size: smaller;
     background-color: darkred;
@@ -87,4 +88,22 @@ button {
     text-align: center;
 
 }
+
+
 /*********************** Form Styles End here ********************************/
+
+/****************** Added by Holly for Spinning Dice Images ******************/
+.rotate {
+    animation: rotation 2s linear;
+    animation-duration: 1s;
+}
+
+@keyframes rotation {
+    from {
+        transform: rotate(0deg);
+    }
+    to {
+        transform: rotate(359deg);
+    }
+}
+/****************** End of Spinning Dice Images ******************/

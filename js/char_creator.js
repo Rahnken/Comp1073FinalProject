@@ -83,15 +83,27 @@ function randomSelector(input, output){
 }
 
 //Rolls the dice to create a random result
-function roll(diceType, output){
+function roll(diceType, output, image){
     //stop form from submitting
     stopSubmit();
 
     //get random number from the possible numbers on the dice, dependant on dice type (eg. D8 dice will have diceType=8)
-    let diceRoll = Math.floor(Math.random() * diceType);
+    let diceRoll = Math.floor(Math.random() * diceType)+1;
 
     //output the random number rolled to the corresponding result box
     document.getElementById(output).value = diceRoll.toString();
+
+    /*******SPINNING DICE IMAGES*******/
+
+    //output the random number to the dice image
+    document.getElementById(image).src="..\\img\\"+diceType+"-"+diceRoll+".png";
+
+    //triggering reflow of spin animation by removing animation class and offset width
+    document.getElementById(image).classList.remove("rotate");
+    void document.getElementById(image).offsetWidth;
+
+    //reassign rotate class to image to make it spin on every button click
+    document.getElementById(image).classList.add("rotate");
 }
 
 //Outputs the selected dropdown value to the corresponding result box
@@ -125,17 +137,17 @@ function getDetails(){
         .then(data => backgroundsArray = data.backgrounds)
         .then(()=> index = backgroundsArray.findIndex(obj => obj.name==background))
         .then(()=> feature_result = backgroundsArray[index].feature)
-    .then(()=> document.getElementById('character_bio').innerHTML="Feature = "+feature_result)
-    .then(()=> specialty_result = backgroundsArray[index].specialty[specialty])
-    .then(()=> document.getElementById('character_bio').innerHTML+="Specialty = "+specialty_result)
-    .then(()=> trait_result = backgroundsArray[index].characteristics.trait[trait])
-    .then(()=> document.getElementById('character_bio').innerHTML+="Trait = "+trait_result)
-    .then(()=> ideal_result = backgroundsArray[index].characteristics.ideal[ideal])
-    .then(()=> document.getElementById('character_bio').innerHTML+="Ideal = "+ideal_result)
-    .then(()=> bond_result = backgroundsArray[index].characteristics.bond[bond])
-    .then(()=> document.getElementById('character_bio').innerHTML+="Bond = "+bond_result)
-    .then(()=> flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
-    .then(()=> document.getElementById('character_bio').innerHTML+="Flaw = "+flaw_result)
+        .then(()=> document.getElementById('character_bio').innerHTML="Feature = "+feature_result)
+        .then(()=> specialty_result = backgroundsArray[index].specialty[specialty])
+        .then(()=> document.getElementById('character_bio').innerHTML+="Specialty = "+specialty_result)
+        .then(()=> trait_result = backgroundsArray[index].characteristics.trait[trait])
+        .then(()=> document.getElementById('character_bio').innerHTML+="Trait = "+trait_result)
+        .then(()=> ideal_result = backgroundsArray[index].characteristics.ideal[ideal])
+        .then(()=> document.getElementById('character_bio').innerHTML+="Ideal = "+ideal_result)
+        .then(()=> bond_result = backgroundsArray[index].characteristics.bond[bond])
+        .then(()=> document.getElementById('character_bio').innerHTML+="Bond = "+bond_result)
+        .then(()=> flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
+        .then(()=> document.getElementById('character_bio').innerHTML+="Flaw = "+flaw_result)
 
 
 
