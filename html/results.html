@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!-- Main Author: Michael Caldwell, 200445010 !-->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Results</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <!-- Temporary styles while Eric works on styles.css !-->
+    <style>
+        /*Temporary border style for easy div viewing*/
+        /*div{*/
+        /*    border-style: solid;*/
+        /*}*/
+
+        /* Creates a more print friendly view */
+        div#printTarget{
+            background: white;
+            margin-left: 20%;
+            margin-right: 20%;
+            color:black;
+            padding-left: 3em;
+            padding-right:3em;
+        }
+        /*Overrides main styles sheet*/
+        p {
+            color:black;
+        }
+        /*Fills the space between elements*/
+        .wrapperSpaced {
+            display:flex;
+            justify-content:space-between;
+        }
+
+        .wrapperLeft{
+            display:flex;
+            justify-content: left;
+        }
+        /*Make headers bold*/
+        ul li {
+            font-weight: bold;
+        }
+        /*Make normal information normal*/
+        ul li span {
+            font-weight: normal;
+        }
+        /*Vertical list*/
+        ul.VList li {
+            display: block;
+            margin-bottom: 1em;
+        }
+        ul.VList li:last-of-type{
+            margin-bottom: 0em;
+        }
+
+        /* Horizontal list */
+        ul.HList li{
+            display: inline;
+            margin-right: 2em;
+        }
+        ul.HList li:last-of-type{
+            margin-right: 0em;
+        }
+
+        /* */
+        ul#Traits li{
+            text-align: center;
+        }
+        ul#Traits li span{
+            display: block;
+            font-weight: normal;
+        }
+
+    </style>
+</head>
+<body>
+<div id="nav-placeholder">
+    <script> window.onload = function(){
+        $.get("nav.html", function(data){
+            $("#nav-placeholder").html(data);
+        })
+    }</script>
+</div>
+<h1>Home Page</h1>
+<div id="printTarget" >
+    <div class="wrapperSpaced">
+        <h2>Name: <span id="characterName">John Doe</span></h2>
+
+        <ul id="characterInfo" class="HList">
+            <li>Class: <span id="characterClass">Assassin</span></li>
+            <li>Race: <span id="characterRace">Dragonborn</span></li>
+            <li>Gender: <span id="characterGender">Male</span></li>
+            <li>Level: <span id="characterLevel">1</span></li>
+        </ul>
+
+    </div>
+    <div class ="wrapperLeft">
+        <ul id="Traits" class="VList">
+            <li>Strength:
+                <span id="strengthBase"> 1 </span>
+                <span id="strengthMod"> 1 </span>
+            </li>
+            <li>Dexterity:
+                <span id="dexterityBase"> 1 </span>
+                <span id="dexterityMod"> 1 </span>
+            </li>
+            <li>Constitution:
+                <span id="constitutionBase"> 1 </span>
+                <span id="constitutionMod"> 1 </span>
+            </li>
+            <li>Intelligence:
+                <span id="intelligenceBase"> 1 </span>
+                <span id="intelligenceMod"> 1 </span>
+            </li>
+            <li>Wisdom:
+                <span id="wisdomBase"> 1 </span>
+                <span id="wisdomMod"> 1 </span>
+            </li>
+            <li>Charisma:
+                <span id="charismaBase"> 1</span>
+                <span id="charismaMod"> 1 </span>
+            </li>
+        </ul>
+        <ul id="Descriptors" class="VList">
+            <li>Specialty: <span id="charSpecialty">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
+            <li>Trait: <span id="charTrait">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
+            <li>Ideals: <span id="charIdeals">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
+            <li>Bonds: <span id="charBonds">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
+            <li>Flaws: <span id="charFlaws">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
+        </ul>
+        <p><b>Background:</b> <span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></p>
+    </div>
+
+</div>
+</body>
+</html>
