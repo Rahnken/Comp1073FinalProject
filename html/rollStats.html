@@ -1,0 +1,99 @@
+
+<!--
+This is the page for users to roll their character stats
+
+Main Author:  Lani Low 200440104
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Roll Stats</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script type="text/javascript" src="../js/rollStats.js"></script>
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" href="../css/rollStatsStyle.css">
+</head>
+<body >
+
+<!--Added By Eric for the Nav Bar-->
+<!--loading startup function on page ready-->
+<div id="nav-placeholder">
+    <script> window.onload = function(){
+        $.get("nav.html", function(data){
+            $("#nav-placeholder").html(data);
+        })
+        $(document).ready(function () {
+            startup();})
+
+    }</script>
+</div>
+
+<!--Roll dice to get stats-->
+<h1>Stats</h1>
+
+<h2>Roll for stats</h2>
+<p>
+    Roll the dice to get stat values. Each value will roll four six sided die and the highest three numbers will be added.
+</p>
+<form id="rollStats">
+    <!-- Four six sided dice to roll-->
+    <fieldset>
+        <div>
+        </div>
+    </fieldset>
+</form>
+
+<!--These are where the number values of the rolled stats will go so they can be dragged and dropped -->
+<!--into their location-->
+<section id="statNumbers">
+    <h3 id="stat1" draggable="true" class="fill" ondragstart="drag(event)"><button>1</button></h3>
+    <h3 id="stat2" draggable="true" class="fill" ondragstart="drag(event)"><button>2</button></h3>
+    <h3 id="stat3" draggable="true" class="fill" ondragstart="drag(event)"><button>3</button></h3>
+    <h3 id="stat4" draggable="true" class="fill" ondragstart="drag(event)"><button>4</button></h3>
+    <h3 id="stat5" draggable="true" class="fill" ondragstart="drag(event)"><button>5</button></h3>
+    <h3 id="stat6" draggable="true" class="fill" ondragstart="drag(event)"><button>6</button></h3>
+</section>
+
+<h2>Place Stats</h2>
+<p>
+    Drag and drop numbers to the desired stat boxes.
+</p>
+<!--drag and drop stat values to desired stats-->
+<form id="selectStats">
+    <fieldset>
+        <p>
+            <label for="strength">Strength</label>
+            <div type="number" id="strength" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </p>
+        <p>
+            <label for="dexterity">Dexterity</label>
+            <div type="number" id="dexterity" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </p>
+        <p>
+            <label for="constitution">Constitution</label>
+            <div type="number" id="constitution" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </p>
+        <p>
+            <label for="intelligence">Intelligence</label>
+            <div type="number" id="intelligence" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </p>
+        <p>
+            <label for="wisdom">Wisdom</label>
+            <div type="number" id="wisdom" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </p>
+        <p>
+            <label for="charisma">Charisma</label>
+            <div type="number" id="charisma" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
+        </p>
+        <p>
+            <input type="submit" value="Submit Stats">
+        </p>
+    </fieldset>
+</form>
+
+<script type="text/javascript" src="../js/char_creator.js"></script>
+</body>
+</html>
