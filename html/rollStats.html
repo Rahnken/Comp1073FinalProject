@@ -42,8 +42,71 @@ Main Author:  Lani Low 200440104
     <!-- Four six sided dice to roll-->
     <fieldset>
         <div>
+            <button id="statValue1_btn" onclick="roll(
+                'statValue1','statValue1-img1', 'statValue1-img2', 'statValue1-img3', 'statValue1-img4'
+                )">Roll Stat</button>
+            <input id = "statValue1" type="number" min="3" max="18" required>
+            <img id="statValue1-img1" width="100px" height="100px">
+            <img id="statValue1-img2" width="100px" height="100px">
+            <img id="statValue1-img3" width="100px" height="100px">
+            <img id="statValue1-img4" width="100px" height="100px">
+        </div>
+        <div>
+            <button id="statValue2_btn" onclick="roll(
+                'statValue2','statValue2-img1', 'statValue2-img2', 'statValue2-img3', 'statValue2-img4'
+                )">Roll Stat</button>
+            <input id = "statValue2" type="number" min="3" max="18" required>
+            <img id="statValue2-img1" width="100px" height="100px">
+            <img id="statValue2-img2" width="100px" height="100px">
+            <img id="statValue2-img3" width="100px" height="100px">
+            <img id="statValue2-img4" width="100px" height="100px">
+        </div>
+        <div>
+            <button id="statValue3_btn" onclick="roll(
+                'statValue3','statValue3-img1', 'statValue3-img2', 'statValue3-img3', 'statValue3-img4'
+                )">Roll Stat</button>
+            <input id = "statValue3" type="number" min="3" max="18" required>
+            <img id="statValue3-img1" width="100px" height="100px">
+            <img id="statValue3-img2" width="100px" height="100px">
+            <img id="statValue3-img3" width="100px" height="100px">
+            <img id="statValue3-img4" width="100px" height="100px">
+        </div>
+        <div>
+            <button id="statValue4_btn" onclick="roll(
+                'statValue4','statValue4-img1', 'statValue4-img2', 'statValue4-img3', 'statValue4-img4'
+                )">Roll Stat</button>
+            <input id = "statValue4" type="number" min="3" max="18" required>
+            <img id="statValue4-img1" width="100px" height="100px">
+            <img id="statValue4-img2" width="100px" height="100px">
+            <img id="statValue4-img3" width="100px" height="100px">
+            <img id="statValue4-img4" width="100px" height="100px">
+        </div>
+        <div>
+            <button id="statValue5_btn" onclick="roll(
+                'statValue5','statValue5-img1', 'statValue5-img2', 'statValue5-img3', 'statValue5-img4'
+                )">Roll Stat</button>
+            <input id = "statValue5" type="number" min="3" max="18" required>
+            <img id="statValue5-img1" width="100px" height="100px">
+            <img id="statValue5-img2" width="100px" height="100px">
+            <img id="statValue5-img3" width="100px" height="100px">
+            <img id="statValue5-img4" width="100px" height="100px">
+        </div>
+        <div>
+            <button id="statValue6_btn" onclick="roll(
+                'statValue6','statValue6-img1', 'statValue6-img2', 'statValue6-img3', 'statValue6-img4'
+                )">Roll Stat</button>
+            <input id = "statValue6" type="number" min="3" max="18" required>
+            <img id="statValue6-img1" width="100px" height="100px">
+            <img id="statValue6-img2" width="100px" height="100px">
+            <img id="statValue6-img3" width="100px" height="100px">
+            <img id="statValue6-img4" width="100px" height="100px">
         </div>
     </fieldset>
+    <p>
+        <input type="submit" onclick="submitStats(
+            'statValue1','statValue2','statValue3','statValue4','statValue5','statValue6'
+            )" value="Confirm Numbers">
+    </p>
 </form>
 
 <!--These are where the number values of the rolled stats will go so they can be dragged and dropped -->
@@ -94,6 +157,6 @@ Main Author:  Lani Low 200440104
     </fieldset>
 </form>
 
-<script type="text/javascript" src="../js/char_creator.js"></script>
+<!--<script type="text/javascript" src="../js/char_creator.js"></script>-->
 </body>
 </html>
