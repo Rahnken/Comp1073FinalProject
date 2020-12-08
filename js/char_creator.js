@@ -8,7 +8,6 @@ Main Author:  Stephanie Holly Bedard, 200443133
 
 //creates the initial page configurations
 function startup() {
-    // alert("Startup is working!")
 
     let racesArray;//initialize variable to store race data in
     //get values for the Race dropdown
@@ -54,6 +53,14 @@ function stopSubmit(){
     form.addEventListener("submit", function(event){
         event.preventDefault();
     })
+}
+
+function startSubmit(){
+    const form = document.getElementById('form');
+    //re-establish default submit function on form in case it was blocked earlier
+    $(form).submit( function(ev) {
+        $(this).unbind('submit').submit()
+    });
 }
 
 /*Chooses a random option from the dropdown as the selected option,
@@ -113,57 +120,108 @@ function fillResult(input, output){
     document.getElementById(output).innerHTML=result;
 }
 
+//Stores all character information into a JSON file
+function saveData(){
+    //get the character information from the form
+    let finalRace = document.getElementById('race_result').innerHTML;
+    let finalGender = document.getElementById('gender_result').innerHTML;
+    let finalName = document.getElementById('input_name').value;
+    let finalClass = document.getElementById('class_result').innerHTML;
+    let finalBackground = document.getElementById('background_result').innerHTML;
+    let finalFeature = document.getElementById('feature_hidden').innerHTML;
+    let finalSpecialty = document.getElementById('specialty_hidden').innerHTML;
+    let finalTrait = document.getElementById('trait_hidden').innerHTML;
+    let finalCharIdeals = document.getElementById('charIdeals_hidden').innerHTML;
+    let finalBond = document.getElementById('bond_hidden').innerHTML;
+    let finalFlaw = document.getElementById('flaw_hidden').innerHTML;
+
+    localStorage.setItem('race', finalRace);
+    localStorage.setItem('gender', finalGender);
+    localStorage.setItem('name', finalName);
+    localStorage.setItem('charClass', finalClass);
+    localStorage.setItem('background', finalBackground);
+    localStorage.setItem('feature', finalFeature);
+    localStorage.setItem('specialty', finalSpecialty);
+    localStorage.setItem('trait', finalTrait);
+    localStorage.setItem('charIdeals', finalCharIdeals);
+    localStorage.setItem('bond', finalBond);
+    localStorage.setItem('flaw', finalFlaw);
+
+    startSubmit();
+
+    //store final character information in variable
+    // let character = {characterBio:{
+    //     race: finalRace,
+    //     gender: finalGender,
+    //     name: finalName,
+    //     className: finalClass,
+    //     background: finalBackground,
+    //     feature: finalFeature,
+    //     specialty: finalSpecialty,
+    //     trait: finalTrait,
+    //     charIdeals: finalCharIdeals,
+    //     bond: finalBond,
+    //     flaw: finalFlaw}
+    // };
+    //
+    // //convert variable to Json format
+    // let characterJson = JSON.stringify(character);
+    //
+    // //specify where to store the json file
+    // let path = "../json/characterData.json"
+}
+
+function testStorage(){
+    let race_store = localStorage.getItem('race');
+    let bond_store = localStorage.getItem('bond');
+
+    document.getElementById('input_test').innerHTML= bond_store;
+    document.getElementById('input_test2').innerHTML= race_store;
+}
+
 /*******************************************************************************************/
 /*                              CHARACTER DETAILS                                          */
 /*******************************************************************************************/
 
+//get the character background details (feature, trait, ideal, bond, flaw) from Json file and display in results paragraph.
 function getDetails(){
 
     //get the values of the feature, specialty, trait, ideals, bond, flaw rolls
     let background = document.getElementById('background_result').innerHTML;
     let specialty = document.getElementById('specialty').value;
     let trait = document.getElementById('trait').value;
-    let ideal = document.getElementById('ideal').value;
+    let charIdeals = document.getElementById('charIdeals').value;
     let bond = document.getElementById('bond').value;
     let flaw = document.getElementById('flaw').value;
 
     //declare variables for the storing the results of each character detail
-    let backgroundsArray, index, feature_result, specialty_result, trait_result, ideal_result, bond_result, flaw_result;
+    let backgroundsArray, index, feature_result, specialty_result, trait_result, charIdeals_result, bond_result, flaw_result;
 
     /*use fetch to get from the json file, then get data on the feature, specialty, trait, ideal, bond, and flaw details
-    according to the character background name inputted by user, or randomly rolled and selected*/
+    according to the character background name inputted by user, or randomly rolled and selected.
+    Then output to character bio paragraphs*/
     fetch("../json/backgrounds.json")
         .then(res => res.json())
         .then(data => backgroundsArray = data.backgrounds)
         .then(()=> index = backgroundsArray.findIndex(obj => obj.name==background))
         .then(()=> feature_result = backgroundsArray[index].feature)
         .then(()=> document.getElementById('character_bio').innerHTML="Feature = "+feature_result)
+        .then(()=> document.getElementById('feature_hidden').innerHTML= feature_result)
         .then(()=> specialty_result = backgroundsArray[index].specialty[specialty])
         .then(()=> document.getElementById('character_bio').innerHTML+="Specialty = "+specialty_result)
+        .then(()=> document.getElementById('specialty_hidden').innerHTML= specialty_result)
         .then(()=> trait_result = backgroundsArray[index].characteristics.trait[trait])
         .then(()=> document.getElementById('character_bio').innerHTML+="Trait = "+trait_result)
-        .then(()=> ideal_result = backgroundsArray[index].characteristics.ideal[ideal])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Ideal = "+ideal_result)
+        .then(()=> document.getElementById('trait_hidden').innerHTML= trait_result)
+        .then(()=> charIdeals_result = backgroundsArray[index].characteristics.charIdeals[charIdeals])
+        .then(()=> document.getElementById('character_bio').innerHTML+="Ideals = "+charIdeals_result)
+        .then(()=> document.getElementById('charIdeals_hidden').innerHTML= charIdeals_result)
         .then(()=> bond_result = backgroundsArray[index].characteristics.bond[bond])
         .then(()=> document.getElementById('character_bio').innerHTML+="Bond = "+bond_result)
+        .then(()=> document.getElementById('bond_hidden').innerHTML= bond_result)
         .then(()=> flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
         .then(()=> document.getElementById('character_bio').innerHTML+="Flaw = "+flaw_result)
-
-
-
-
-
-        //.then(()=> document.getElementById('feature_result').innerHTML="Feature = "+feature_result)
-        //.then(()=> specialty_result = backgroundsArray[index].specialty[specialty])
-        //.then(()=> document.getElementById('specialty_result').innerHTML="Specialty = "+specialty_result)
-        //.then(()=> trait_result = backgroundsArray[index].characteristics.trait[trait])
-        //.then(()=> document.getElementById('trait_result').innerHTML="Trait = "+trait_result)
-        //.then(()=> ideal_result = backgroundsArray[index].characteristics.ideal[ideal])
-        //.then(()=> document.getElementById('ideal_result').innerHTML="Ideal = "+ideal_result)
-        //.then(()=> bond_result = backgroundsArray[index].characteristics.bond[bond])
-        //.then(()=> document.getElementById('bond_result').innerHTML="Bond = "+bond_result)
-        //.then(()=> flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
-        //.then(()=> document.getElementById('flaw_result').innerHTML="Flaw = "+flaw_result)
+        .then(()=> document.getElementById('flaw_hidden').innerHTML= flaw_result)
 }
 
 /*******************************************************************************************/
@@ -248,7 +306,6 @@ function generateName(){
     const maleHA = [ "Alton", "Ander", "Cade", "Corrin", "Eldon", "Errich", "Finnan", "Garret", "Lindal", "Lyle", "Merric", "Milo", "Osborn", "Perrin", "Reed", "Roscoe", "Wellby"];
     //surname
     const surHA = ["Brushgather", "Goodbarrel", "Greenbottle", "Highhill", "Hilltopple", "Leagallow", "Tealeaf", "Thorngage", "Tosscobble", "Underbough"];
-
 
 
     //get the gender
