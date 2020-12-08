@@ -55,9 +55,10 @@ function stopSubmit(){
     })
 }
 
+//re-establish default submit function on form in case it was blocked earlier
 function startSubmit(){
     const form = document.getElementById('form');
-    //re-establish default submit function on form in case it was blocked earlier
+
     $(form).submit( function(ev) {
         $(this).unbind('submit').submit()
     });
@@ -149,26 +150,7 @@ function saveData(){
 
     startSubmit();
 
-    //store final character information in variable
-    // let character = {characterBio:{
-    //     race: finalRace,
-    //     gender: finalGender,
-    //     name: finalName,
-    //     className: finalClass,
-    //     background: finalBackground,
-    //     feature: finalFeature,
-    //     specialty: finalSpecialty,
-    //     trait: finalTrait,
-    //     charIdeals: finalCharIdeals,
-    //     bond: finalBond,
-    //     flaw: finalFlaw}
-    // };
-    //
-    // //convert variable to Json format
-    // let characterJson = JSON.stringify(character);
-    //
-    // //specify where to store the json file
-    // let path = "../json/characterData.json"
+
 }
 
 function testStorage(){

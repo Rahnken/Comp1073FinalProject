@@ -27,7 +27,7 @@ Main Author:  Stephanie Holly Bedard, 200443133
 </div>
 
 <h1>Character Creator</h1>
-<form id="form" action="./test.html">
+<form id="form" action="./rollStats.html">
     <!--RACE SELECTION-->
     <fieldset id="race_selection">
         <label for="race_input">Select Your Character's Race:</label>
@@ -118,6 +118,9 @@ Main Author:  Stephanie Holly Bedard, 200443133
 
         <!--Button to show all Character Detail Results-->
         <button onclick="getDetails()">Reveal Character Details</button>
+        <p id="character_bio"></p>
+
+        <!--divs to store data to pass to next page-->
         <div id="feature_hidden" style="display: none"></div>
         <div id="specialty_hidden" style="display: none"></div>
         <div id="trait_hidden" style="display: none"></div>
@@ -125,7 +128,6 @@ Main Author:  Stephanie Holly Bedard, 200443133
         <div id="bond_hidden" style="display: none"></div>
         <div id="flaw_hidden" style="display: none"></div>
 
-        <p id="character_bio"></p>
     </fieldset>
     <button type="submit" onclick="saveData()">Continue To Character Stats Page</button>
 </form>
