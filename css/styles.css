@@ -87,6 +87,21 @@ button {
     padding: 1em;
     text-align: center;
 
+
+}
+#background_details{
+    display: flex;
+    flex-wrap: wrap;
+
+}
+#background_details div  {
+    width: 50%;
+}
+
+#RevealBtn{
+    align-self: center;
+    width: 20px;
+    flex-grow: 5;
 }
 
 

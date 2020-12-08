@@ -205,6 +205,7 @@ function getDetails(){
         .then(data => backgroundsArray = data.backgrounds)
         .then(()=> index = backgroundsArray.findIndex(obj => obj.name==background))
         .then(()=> feature_result = backgroundsArray[index].feature)
+
         .then(()=> document.getElementById('character_bio').innerHTML="Feature = "+feature_result)
         .then(()=> document.getElementById('feature_hidden').innerHTML= feature_result)
         .then(()=> specialty_result = backgroundsArray[index].specialty[specialty])
@@ -222,6 +223,7 @@ function getDetails(){
         .then(()=> flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
         .then(()=> document.getElementById('character_bio').innerHTML+="Flaw = "+flaw_result)
         .then(()=> document.getElementById('flaw_hidden').innerHTML= flaw_result)
+
 }
 
 /*******************************************************************************************/

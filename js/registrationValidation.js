@@ -1,3 +1,13 @@
+/**
+ *
+ *  This page uses functions to validate if each field in the form is
+ *  correctly filled. Custom error messages are returned if not.
+ *
+ * @returns {boolean}
+ * @author Lani Low
+ *
+ */
+
 
 function validateForm()
 {
@@ -14,6 +24,10 @@ function validateForm()
             emailValidation() === true;
 }
 
+/**
+ *
+ * @returns {boolean}
+ */
 function firstNameValidation() {
     let fname = document.forms["registrationForm"]["fname"].value;
 

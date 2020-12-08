@@ -1,0 +1,13 @@
+
+.fill {
+    position: relative;
+    cursor: pointer;
+}
+
+.empty {
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    border: 3px black solid;
+    background-color: white;
+}
