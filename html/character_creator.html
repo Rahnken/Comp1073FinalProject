@@ -27,7 +27,7 @@ Main Author:  Stephanie Holly Bedard, 200443133
 </div>
 
 <h1>Character Creator</h1>
-<form id="form">
+<form id="form" action="./test.html">
     <!--RACE SELECTION-->
     <fieldset id="race_selection">
         <label for="race_input">Select Your Character's Race:</label>
@@ -94,13 +94,14 @@ Main Author:  Stephanie Holly Bedard, 200443133
             <img id="trait_img" width="100px" height="100px">
         </div>
 
-        <!--Roll for Ideal and Results-->
-        <div>
-            <button id="btn_ideal" onclick="roll(6, 'ideal','ideal_img')"> Random Ideals</button>
-            <input id = "ideal" type="text" placeholder="Roll D6 and Enter Number" ><br>
-            <img id="ideal_img" width="100px" height="100px">
-        </div>
-
+ 
+        <!--Roll for Ideals and Results-->
+        <fieldset>
+            <button id="btn_ideals" onclick="roll(6, 'charIdeals','charIdeals_img')"> Random Ideals</button>
+            <input id = "charIdeals" type="text" placeholder="Roll D6 and Enter Number" ><br>
+            <img id="charIdeals_img" width="100px" height="100px">
+      </fieldset>
+        
         <!--Roll for Bond and Results-->
         <div>
             <button id="btn_bond" onclick="roll(6, 'bond','bond_img')">Random Bond</button>
@@ -117,8 +118,16 @@ Main Author:  Stephanie Holly Bedard, 200443133
 
         <!--Button to show all Character Detail Results-->
         <button onclick="getDetails()">Reveal Character Details</button>
+        <div id="feature_hidden" style="display: none"></div>
+        <div id="specialty_hidden" style="display: none"></div>
+        <div id="trait_hidden" style="display: none"></div>
+        <div id="charIdeals_hidden" style="display: none"></div>
+        <div id="bond_hidden" style="display: none"></div>
+        <div id="flaw_hidden" style="display: none"></div>
+
         <p id="character_bio"></p>
     </fieldset>
+    <button type="submit" onclick="saveData()">Continue To Character Stats Page</button>
 </form>
 
 <script type="text/javascript" src="../js/char_creator.js"></script>
