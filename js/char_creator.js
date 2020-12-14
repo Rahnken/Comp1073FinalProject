@@ -168,44 +168,56 @@ function testStorage(){
 //get the character background details (feature, trait, ideal, bond, flaw) from Json file and display in results paragraph.
 function getDetails(){
 
-    //get the values of the feature, specialty, trait, ideals, bond, flaw rolls
-    let background = document.getElementById('background_result').innerHTML;
-    let specialty = document.getElementById('specialty').value;
-    let trait = document.getElementById('trait').value;
-    let charIdeals = document.getElementById('charIdeals').value;
-    let bond = document.getElementById('bond').value;
-    let flaw = document.getElementById('flaw').value;
+    //stop form from submitting
+    stopSubmit();
 
-    //declare variables for the storing the results of each character detail
-    let backgroundsArray, index, feature_result, specialty_result, trait_result, charIdeals_result, bond_result, flaw_result;
+        //get the values of the feature, specialty, trait, ideals, bond, flaw rolls
+        let background = document.getElementById('background_result').innerHTML;
+        let specialty = document.getElementById('specialty').value;
+        let trait = document.getElementById('trait').value;
+        let charIdeals = document.getElementById('charIdeals').value;
+        let bond = document.getElementById('bond').value;
+        let flaw = document.getElementById('flaw').value;
 
-    /*use fetch to get from the json file, then get data on the feature, specialty, trait, ideal, bond, and flaw details
-    according to the character background name inputted by user, or randomly rolled and selected.
-    Then output to character bio paragraphs*/
-    fetch("../json/backgrounds.json")
-        .then(res => res.json())
-        .then(data => backgroundsArray = data.backgrounds)
-        .then(()=> index = backgroundsArray.findIndex(obj => obj.name==background))
-        .then(()=> feature_result = backgroundsArray[index].feature)
+    if (background == "" || specialty == "" || trait == "" || charIdeals =="" || bond == "" || flaw == ""){
+        document.getElementById('reveal_warning').innerHTML = "You must select a background and complete all rolls first."
+    }
+    else {
 
-        .then(()=> document.getElementById('character_bio').innerHTML="Feature = "+feature_result)
-        .then(()=> document.getElementById('feature_hidden').innerHTML= feature_result)
-        .then(()=> specialty_result = backgroundsArray[index].specialty[specialty])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Specialty = "+specialty_result)
-        .then(()=> document.getElementById('specialty_hidden').innerHTML= specialty_result)
-        .then(()=> trait_result = backgroundsArray[index].characteristics.trait[trait])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Trait = "+trait_result)
-        .then(()=> document.getElementById('trait_hidden').innerHTML= trait_result)
-        .then(()=> charIdeals_result = backgroundsArray[index].characteristics.charIdeals[charIdeals])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Ideals = "+charIdeals_result)
-        .then(()=> document.getElementById('charIdeals_hidden').innerHTML= charIdeals_result)
-        .then(()=> bond_result = backgroundsArray[index].characteristics.bond[bond])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Bond = "+bond_result)
-        .then(()=> document.getElementById('bond_hidden').innerHTML= bond_result)
-        .then(()=> flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
-        .then(()=> document.getElementById('character_bio').innerHTML+="Flaw = "+flaw_result)
-        .then(()=> document.getElementById('flaw_hidden').innerHTML= flaw_result)
+        //clear error message
+        document.getElementById('reveal_warning').innerHTML = "";
 
+        //declare variables for the storing the results of each character detail
+        let backgroundsArray, index, feature_result, specialty_result, trait_result, charIdeals_result, bond_result,
+            flaw_result;
+
+        /*use fetch to get from the json file, then get data on the feature, specialty, trait, ideal, bond, and flaw details
+        according to the character background name inputted by user, or randomly rolled and selected.
+        Then output to character bio paragraphs*/
+        fetch("../json/backgrounds.json")
+            .then(res => res.json())
+            .then(data => backgroundsArray = data.backgrounds)
+            .then(() => index = backgroundsArray.findIndex(obj => obj.name == background))
+            .then(() => feature_result = backgroundsArray[index].feature)
+
+            .then(() => document.getElementById('character_bio').innerHTML = "Feature = " + feature_result)
+            .then(() => document.getElementById('feature_hidden').innerHTML = feature_result)
+            .then(() => specialty_result = backgroundsArray[index].specialty[specialty])
+            .then(() => document.getElementById('character_bio').innerHTML += " Specialty = " + specialty_result)
+            .then(() => document.getElementById('specialty_hidden').innerHTML = specialty_result)
+            .then(() => trait_result = backgroundsArray[index].characteristics.trait[trait])
+            .then(() => document.getElementById('character_bio').innerHTML += " Trait = " + trait_result)
+            .then(() => document.getElementById('trait_hidden').innerHTML = trait_result)
+            .then(() => charIdeals_result = backgroundsArray[index].characteristics.charIdeals[charIdeals])
+            .then(() => document.getElementById('character_bio').innerHTML += " Ideals = " + charIdeals_result)
+            .then(() => document.getElementById('charIdeals_hidden').innerHTML = charIdeals_result)
+            .then(() => bond_result = backgroundsArray[index].characteristics.bond[bond])
+            .then(() => document.getElementById('character_bio').innerHTML += " Bond = " + bond_result)
+            .then(() => document.getElementById('bond_hidden').innerHTML = bond_result)
+            .then(() => flaw_result = backgroundsArray[index].characteristics.flaw[flaw])
+            .then(() => document.getElementById('character_bio').innerHTML += " Flaw = " + flaw_result)
+            .then(() => document.getElementById('flaw_hidden').innerHTML = flaw_result)
+    }
 }
 
 /*******************************************************************************************/
