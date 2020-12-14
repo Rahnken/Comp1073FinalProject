@@ -63,20 +63,21 @@ nav a:hover{
 /********************** Nav Style Ends Here ************************************/
 
 /*********************** Form Styles Start here ********************************/
-form {
-    width: 80%;
-    background-color: #EFE9DD;
-    padding: 10px;
-    margin: 10px auto;
-    display:grid;
+#BackgroundForm{
     grid-template-areas:
            'race race race race'
            'gender gender gender gender'
            'name name name name'
            'cl cl cl cl '
            'bground bground bground bground'
-           'bgDetails bgDetails bgDetails bgDetails'
-
+           'bgDetails bgDetails bgDetails bgDetails';
+}
+form {
+    width: 80%;
+    background-color: #EFE9DD;
+    padding: 10px;
+    margin: 10px auto;
+    display:grid;
 }
 
 fieldset {
