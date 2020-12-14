@@ -10,7 +10,7 @@ h1{
 p{
     font-family: "Satisfy", Arial, sans-serif;
     margin: 1em auto;
-    color: #830a24;
+    color: #fde0e7;
     font-size: 1rem;
     clear:both;
 }
@@ -65,11 +65,19 @@ nav a:hover{
 /*********************** Form Styles Start here ********************************/
 #statValues{
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-areas: 'Header Header''Stats Stats''Stats Stats''Stats Stats''Button Button';
+}
+#StatsHeader{
+    grid-area: Header;
+    justify-content: stretch;
+}
+#submitStats{
+    grid-area: Button;
 }
 #dropStats{
     display:grid;
-    grid-template-columns: auto auto;
+    grid-template-areas:'Header Header''Stats Stats''Stats Stats''Stats Stats''Button Button';
+    justify-content: stretch;
 }
 img{
     width:50px;

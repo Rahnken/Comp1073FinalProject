@@ -23,10 +23,6 @@ Main Author:  Lani Low 200440104
         $.get("nav.html", function (data) {
             $("#nav-placeholder").html(data);
         })
-        $(document).ready(function () {
-            startup();
-        })
-
     }</script>
 </div>
 
@@ -126,8 +122,8 @@ Main Author:  Lani Low 200440104
 
 <!--drag and drop stat values to desired stats-->
 <form id="dropStats" action="./results.html">
-    <fieldset>
-        <p>
+
+        <p id="StatsHeader">
             Drag and drop numbers to the desired stat boxes.
         </p>
         <div>
@@ -154,11 +150,10 @@ Main Author:  Lani Low 200440104
             <label for="charisma">Charisma</label>
             <div type="number" id="charisma" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
-        <p>
-            <button type="submit">Submit Stats</button>
-        </p>
+        <button id="submitStats" type="submit">Submit Stats</button>
+
         <p id="statSubmitError"></p>
-    </fieldset>
+
 </form>
 </body>
 <script type="text/javascript" src="../js/rollStats.js"></script>
