@@ -136,21 +136,31 @@ function saveData(){
     let finalBond = document.getElementById('bond_hidden').innerHTML;
     let finalFlaw = document.getElementById('flaw_hidden').innerHTML;
 
-    localStorage.setItem('race', finalRace);
-    localStorage.setItem('gender', finalGender);
-    localStorage.setItem('name', finalName);
-    localStorage.setItem('charClass', finalClass);
-    localStorage.setItem('background', finalBackground);
-    localStorage.setItem('feature', finalFeature);
-    localStorage.setItem('specialty', finalSpecialty);
-    localStorage.setItem('trait', finalTrait);
-    localStorage.setItem('charIdeals', finalCharIdeals);
-    localStorage.setItem('bond', finalBond);
-    localStorage.setItem('flaw', finalFlaw);
+    if (finalRace ==="" || finalGender==="" || finalName==="" || finalClass ===""|| finalBackground==="" || finalFeature ===""|| finalSpecialty==="" || finalTrait==="" || finalCharIdeals==="" || finalBond==="" || finalFlaw==="")
+    {
+        stopSubmit();
+       document.getElementById('submitWarning').innerHTML="You must complete all fields before moving to the Stats page"
+    }
+    else {
+        //clear the warning
+        document.getElementById('submitWarning').innerHTML="";
 
-    startSubmit();
+        //store the date
+        localStorage.setItem('race', finalRace);
+        localStorage.setItem('gender', finalGender);
+        localStorage.setItem('name', finalName);
+        localStorage.setItem('charClass', finalClass);
+        localStorage.setItem('background', finalBackground);
+        localStorage.setItem('feature', finalFeature);
+        localStorage.setItem('specialty', finalSpecialty);
+        localStorage.setItem('trait', finalTrait);
+        localStorage.setItem('charIdeals', finalCharIdeals);
+        localStorage.setItem('bond', finalBond);
+        localStorage.setItem('flaw', finalFlaw);
 
-
+        //submit the page and move to stats page
+        startSubmit();
+    }
 }
 
 function testStorage(){
