@@ -1,4 +1,3 @@
-
 <!--
 This is the page for users to roll their character stats
 
@@ -15,17 +14,18 @@ Main Author:  Lani Low 200440104
     <link rel="stylesheet" href="../css/styles.css">
     <link rel="stylesheet" href="../css/rollStatsStyle.css">
 </head>
-<body >
+<body>
 
 <!--Added By Eric for the Nav Bar-->
 <!--loading startup function on page ready-->
 <div id="nav-placeholder">
-    <script> window.onload = function(){
-        $.get("nav.html", function(data){
+    <script> window.onload = function () {
+        $.get("nav.html", function (data) {
             $("#nav-placeholder").html(data);
         })
         $(document).ready(function () {
-            startup();})
+            startup();
+        })
 
     }</script>
 </div>
@@ -33,18 +33,20 @@ Main Author:  Lani Low 200440104
 <!--Roll dice to get stats-->
 <h1>Stats</h1>
 
-<fieldset>
+<form id="statValues">
     <!-- Four six sided dice to roll-->
-    <form id="statValues">
+    <fieldset>
         <h2>Roll for stats</h2>
         <p id="rollStats-instructions">
-            Roll the dice to get stat values. Each value will roll four six sided die and the highest three numbers will be added.
+            Roll the dice to get stat values. Each value will roll four six sided die and the highest three numbers will
+            be added.
         </p>
         <div>
             <button id="statValue1_btn" onclick="roll(
                 'statValue1','statValue1-img1', 'statValue1-img2', 'statValue1-img3', 'statValue1-img4'
-                )">Roll Stat</button>
-            <input id = "statValue1" type="number" min="3" max="18" required>
+                )">Roll Stat
+            </button>
+            <input id="statValue1" type="number" min="3" max="18" required>
             <img id="statValue1-img1" width="100px" height="100px">
             <img id="statValue1-img2" width="100px" height="100px">
             <img id="statValue1-img3" width="100px" height="100px">
@@ -53,8 +55,9 @@ Main Author:  Lani Low 200440104
         <div>
             <button id="statValue2_btn" onclick="roll(
                 'statValue2','statValue2-img1', 'statValue2-img2', 'statValue2-img3', 'statValue2-img4'
-                )">Roll Stat</button>
-            <input id = "statValue2" type="number" min="3" max="18" required>
+                )">Roll Stat
+            </button>
+            <input id="statValue2" type="number" min="3" max="18" required>
             <img id="statValue2-img1" width="100px" height="100px">
             <img id="statValue2-img2" width="100px" height="100px">
             <img id="statValue2-img3" width="100px" height="100px">
@@ -63,8 +66,9 @@ Main Author:  Lani Low 200440104
         <div>
             <button id="statValue3_btn" onclick="roll(
                 'statValue3','statValue3-img1', 'statValue3-img2', 'statValue3-img3', 'statValue3-img4'
-                )">Roll Stat</button>
-            <input id = "statValue3" type="number" min="3" max="18" required>
+                )">Roll Stat
+            </button>
+            <input id="statValue3" type="number" min="3" max="18" required>
             <img id="statValue3-img1" width="100px" height="100px">
             <img id="statValue3-img2" width="100px" height="100px">
             <img id="statValue3-img3" width="100px" height="100px">
@@ -73,8 +77,9 @@ Main Author:  Lani Low 200440104
         <div>
             <button id="statValue4_btn" onclick="roll(
                 'statValue4','statValue4-img1', 'statValue4-img2', 'statValue4-img3', 'statValue4-img4'
-                )">Roll Stat</button>
-            <input id = "statValue4" type="number" min="3" max="18" required>
+                )">Roll Stat
+            </button>
+            <input id="statValue4" type="number" min="3" max="18" required>
             <img id="statValue4-img1" width="100px" height="100px">
             <img id="statValue4-img2" width="100px" height="100px">
             <img id="statValue4-img3" width="100px" height="100px">
@@ -83,8 +88,9 @@ Main Author:  Lani Low 200440104
         <div>
             <button id="statValue5_btn" onclick="roll(
                 'statValue5','statValue5-img1', 'statValue5-img2', 'statValue5-img3', 'statValue5-img4'
-                )">Roll Stat</button>
-            <input id = "statValue5" type="number" min="3" max="18" required>
+                )">Roll Stat
+            </button>
+            <input id="statValue5" type="number" min="3" max="18" required>
             <img id="statValue5-img1" width="100px" height="100px">
             <img id="statValue5-img2" width="100px" height="100px">
             <img id="statValue5-img3" width="100px" height="100px">
@@ -93,30 +99,29 @@ Main Author:  Lani Low 200440104
         <div>
             <button id="statValue6_btn" onclick="roll(
                 'statValue6','statValue6-img1', 'statValue6-img2', 'statValue6-img3', 'statValue6-img4'
-                )">Roll Stat</button>
-            <input id = "statValue6" type="number" min="3" max="18" required>
+                )">Roll Stat
+            </button>
+            <input id="statValue6" type="number" min="3" max="18" required>
             <img id="statValue6-img1" width="100px" height="100px">
             <img id="statValue6-img2" width="100px" height="100px">
             <img id="statValue6-img3" width="100px" height="100px">
             <img id="statValue6-img4" width="100px" height="100px">
         </div>
+        <p>
             <button type="submit">Confirm Numbers</button>
-
-<!--                   onclick="submitStats(-->
-<!--                'statValue1','statValue2','statValue3','statValue4','statValue5','statValue6'-->
-<!--                )" value="Confirm Numbers">-->
-    </form>
-</fieldset>
+        </p>
+    </fieldset>
+</form>
 
 <!--These are where the number values of the rolled stats will go so they can be dragged and dropped -->
 <!--into their location-->
 <section id="statButtons">
-<!--    <button id="stat1" draggable="true" class="fill" ondragstart="drag(event)">1</button>-->
-<!--    <button id="stat2" draggable="true" class="fill" ondragstart="drag(event)">2</button>-->
-<!--    <button id="stat3" draggable="true" class="fill" ondragstart="drag(event)">3</button>-->
-<!--    <button id="stat4" draggable="true" class="fill" ondragstart="drag(event)">4</button>-->
-<!--    <button id="stat5" draggable="true" class="fill" ondragstart="drag(event)">5</button>-->
-<!--    <button id="stat6" draggable="true" class="fill" ondragstart="drag(event)">6</button>-->
+    <button id="stat1" statValue="1" draggable="true" class="fill" ondragstart="drag(event)">1</button>
+    <!--    <button id="stat2" draggable="true" class="fill" ondragstart="drag(event)">2</button>-->
+    <!--    <button id="stat3" draggable="true" class="fill" ondragstart="drag(event)">3</button>-->
+    <!--    <button id="stat4" draggable="true" class="fill" ondragstart="drag(event)">4</button>-->
+    <!--    <button id="stat5" draggable="true" class="fill" ondragstart="drag(event)">5</button>-->
+    <!--    <button id="stat6" draggable="true" class="fill" ondragstart="drag(event)">6</button>-->
 </section>
 
 <h2>Place Stats</h2>
@@ -127,34 +132,32 @@ Main Author:  Lani Low 200440104
             Drag and drop numbers to the desired stat boxes.
         </p>
         <div>
-            <div>
-                <label for="strength">Strength</label>
-                <div type="number" id="strength" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </div>
-            <p>
-                <label for="dexterity">Dexterity</label>
-                <div type="number" id="dexterity" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </p>
-            <p>
-                <label for="constitution">Constitution</label>
-                <div type="number" id="constitution" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </p>
-            <p>
-                <label for="intelligence">Intelligence</label>
-                <div type="number" id="intelligence" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </p>
-            <p>
-                <label for="wisdom">Wisdom</label>
-                <div type="number" id="wisdom" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </p>
-            <p>
-                <label for="charisma">Charisma</label>
-                <div type="number" id="charisma" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
-            </p>
-            <p>
-                <input type="submit" value="Submit Stats">
-            </p>
+            <label for="strength">Strength</label>
+            <div type="number" id="strength" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>
         </div>
+<!--        <div>-->
+<!--            <label for="dexterity">Dexterity</label>-->
+<!--            <div type="number" id="dexterity" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="constitution">Constitution</label>-->
+<!--            <div type="number" id="constitution" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="intelligence">Intelligence</label>-->
+<!--            <div type="number" id="intelligence" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="wisdom">Wisdom</label>-->
+<!--            <div type="number" id="wisdom" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+<!--        </div>-->
+<!--        <div>-->
+<!--            <label for="charisma">Charisma</label>-->
+<!--            <div type="number" id="charisma" class="empty" ondrop="drop(event)" ondragover="allowDrop(event)"></div>-->
+<!--        </div>-->
+        <p>
+            <button type="submit">Submit Stats</button>
+        </p>
     </fieldset>
 </form>
 </body>

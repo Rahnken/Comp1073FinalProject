@@ -9,6 +9,16 @@
  */
 
 /*******************************************************************************************/
+/*                                   APPLY STAT BONUSES                                    */
+/*******************************************************************************************/
+
+// switch (race)   {
+//     case '':
+//
+//         break;
+// }
+
+/*******************************************************************************************/
 /*                               DRAG AND DROP FUNCTION                                    */
 /*******************************************************************************************/
 
@@ -137,9 +147,10 @@ statValuesForm.addEventListener('submit', function (e) {
 
 
         button.textContent = statArray[i];                            // Fill values into the Buttons
-        section.appendChild(button);                                 // Append to section element
+        section.appendChild(button);                                  // Append to section element
         button.classList.add("statButton");                           // add a class to the buttons
         button.setAttribute("draggable", "true");   // Add draggable attribute
+        button.setAttribute("statValue", statArray[i]);   // Add stat value attribute
         button.setAttribute("ondragstart", "drag(event)");
     }
 });
@@ -151,4 +162,13 @@ const dropStatsForm = document.forms['dropStats'];
 
 dropStatsForm.addEventListener('submit', function (e) {
     e.preventDefault();
+
+    // Get the values from the form
+    let strength = dropStatsForm.querySelector('#strength').querySelector('button').getAttribute("statValue");
+    // let dexterity = document.getElementById('statValue2').value;
+    // let constitution = document.getElementById('statValue3').value;
+    // let intelligence = document.getElementById('statValue4').value;
+    // let wisdom = document.getElementById('statValue5').value;
+    // let charisma = document.getElementById('statValue6').value;
+    console.log(strength);
 });
