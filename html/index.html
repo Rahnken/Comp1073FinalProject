@@ -1,3 +1,7 @@
+<!-- The Home page
+
+Main Author: Jordan Coulter 200236142
+-->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,16 +10,32 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/styles.css">
+    <style>
+
+        .intro {
+            margin: 3em;
+            align-content: center;
+            text-align: center;
+        }
+
+    </style>
 </head>
 <body>
-    <div id="nav-placeholder">
-       <script> window.onload = function(){
+<!--Added By Eric for the Nav Bar-->
+<!--loading startup function on page ready-->
+<div id="nav-placeholder">
+    <script> window.onload = function(){
         $.get("nav.html", function(data){
-        $("#nav-placeholder").html(data);
+            $("#nav-placeholder").html(data);
         })
-        }</script>
-    </div>
+    }</script>
+</div>
 <h1>Home Page</h1>
-
+<div class="intro">
+    <p>Welcome to our DnD Character Creation site! Here you can create a character from a list to choose your classe, race, and so on. Targetted lightly towards 5e rules you can create and roll stats by Creating an account, login if you have an account, or just make a one off no account needed! So if you are just looking for a quick one time use, or want to save your character and come back to it with an account, this is the creation tool for you! We used the API from http://www.dnd5eapi.co/ towards this project.
+        <br><br>
+        Log in or register above or hit the button below to get started</p>
+</div>
+<script type="text/javascript" src="../js/index.js"></script>
 </body>
 </html>
