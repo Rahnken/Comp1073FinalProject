@@ -68,13 +68,21 @@ form {
     background-color: #EFE9DD;
     padding: 10px;
     margin: 10px auto;
+    display:grid;
+    grid-template-areas:
+           'race race race race'
+           'gender gender gender gender'
+           'name name name name'
+           'cl cl cl cl '
+           'bground bground bground bground'
+           'bgDetails bgDetails bgDetails bgDetails'
+
 }
 
 fieldset {
     border: 1px solid #693007;
     margin: 1em;
-    display: flex;
-    flex-wrap: wrap;
+
 }
 label {
     color: #005252;
@@ -89,13 +97,23 @@ button {
 
 
 }
-#background_details{
-    display: flex;
-    flex-wrap: wrap;
-
+#background_selection{
+    grid-area: bground;
 }
-#background_details div  {
-    width: 50%;
+#class_selection{
+    grid-area: cl;
+}
+#gender_selection{
+    grid-area: gender;
+}
+#race_selection{
+    grid-area: race;
+}
+#name_selection{
+    grid-area: name;
+}
+#background_details  {
+    grid-area: backgroundDetails;
 }
 
 #RevealBtn{
