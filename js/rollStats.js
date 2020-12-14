@@ -12,11 +12,98 @@
 /*                                   APPLY STAT BONUSES                                    */
 /*******************************************************************************************/
 
-// switch (race)   {
-//     case '':
-//
-//         break;
-// }
+const dropStatsForm = document.forms['dropStats'];
+const p = document.createElement('p');
+const p2 = document.createElement('p');
+
+let strengthBonus = dropStatsForm.querySelector('#strength');
+let dexterityBonus = dropStatsForm.querySelector('#dexterity');
+let constitutionBonus = dropStatsForm.querySelector('#constitution');
+let intelligenceBonus = dropStatsForm.querySelector('#intelligence');
+let wisdomBonus = dropStatsForm.querySelector('#wisdom');
+let charismaBonus = dropStatsForm.querySelector('#charisma');
+
+
+let charRace;
+charRace.innerHTML = localStorage.getItem('race');
+
+switch (charRace)   {
+    case 'dragonborn':
+        p.textContent = '+ 2';
+        strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);
+        p2.textContent = '+ 1';
+        charismaBonus.parentNode.insertBefore(p2, charismaBonus.nextSibling);
+        break;
+
+    case 'dwarf':
+        p.textContent = '+ 2';
+        constitutionBonus.parentNode.insertBefore(p, constitutionBonus.nextSibling);
+        break;
+
+    case 'elf':
+        p.textContent = '+ 2';
+        dexterityBonus.parentNode.insertBefore(p, dexterityBonus.nextSibling);
+        break;
+
+    case 'gnome':
+        p.textContent = '+ 2';
+        intelligenceBonus.parentNode.insertBefore(p, intelligenceBonus.nextSibling);
+        break;
+
+    case 'half-elf':
+        p.textContent = '+ 2';
+        charismaBonus.parentNode.insertBefore(p, charismaBonus.nextSibling);
+        break;
+
+    case 'half-orc':
+        p.textContent = '+ 2';
+        strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);
+        p2.textContent = '+ 1';
+        constitutionBonus.parentNode.insertBefore(p2, constitutionBonus.nextSibling);
+        break;
+
+    case 'halfling':
+        p.textContent = '+ 2';
+        dexterityBonus.parentNode.insertBefore(p, dexterityBonus.nextSibling);
+        break;
+
+    case 'human':
+        const p3 = document.createElement('p');
+        const p4 = document.createElement('p');
+        const p5 = document.createElement('p');
+        const p6 = document.createElement('p');
+
+        p.textContent = '+ 1';
+        strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);
+
+        p2.textContent = '+ 1';
+        dexterityBonus.parentNode.insertBefore(p2, dexterityBonus.nextSibling);
+
+        p3.textContent = '+ 1';
+        constitutionBonus.parentNode.insertBefore(p3, constitutionBonus.nextSibling);
+
+        p4.textContent = '+ 1';
+        intelligenceBonus.parentNode.insertBefore(p4, intelligenceBonus.nextSibling);
+
+        p5.textContent = '+ 1';
+        wisdomBonus.parentNode.insertBefore(p5, wisdomBonus.nextSibling);
+
+        p6.textContent = '+ 1';
+        charismaBonus.parentNode.insertBefore(p6, charismaBonus.nextSibling);
+
+        break;
+
+    case 'tiefling':
+        p.textContent = '+ 1';
+        intelligenceBonus.parentNode.insertBefore(p, intelligenceBonus.nextSibling);
+        p2.textContent = '+ 2';
+        charismaBonus.parentNode.insertBefore(p2, charismaBonus.nextSibling);
+        break;
+
+    default:
+        console.log("There was doubt");
+
+}
 
 /*******************************************************************************************/
 /*                               DRAG AND DROP FUNCTION                                    */
@@ -37,22 +124,6 @@ function drop(ev) {
     ev.target.appendChild(document.getElementById(data));
     console.log('end');
 }
-
-// const fill = document.querySelectorAll('.fill');
-// const empties = document.querySelectorAll('.empty');
-//
-// // Fill Listeners
-// fill.addEventListener('dragstart', dragStart);
-// fill.addEventListener('dragend', dragEnd);
-//
-// // Drag Functions
-// function dragStart() {
-//     console.log('start');
-// }
-//
-// function dragEnd() {
-//     console.log('end');
-// }
 
 /*******************************************************************************************/
 /*                                     ROLL STATS                                          */
@@ -124,10 +195,6 @@ const statValuesForm = document.forms['statValues'];
 statValuesForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
-    //const values = statValuesForm.querySelectorAll().value;
-    // const formValues = statValuesForm.getElementsByTagName('input').value;
-    // console.log(formValues);
-
     // Get the values from the form
     let stat1 = document.getElementById('statValue1').value;
     let stat2 = document.getElementById('statValue2').value;
@@ -136,39 +203,68 @@ statValuesForm.addEventListener('submit', function (e) {
     let stat5 = document.getElementById('statValue5').value;
     let stat6 = document.getElementById('statValue6').value;
 
+    // Set the values to the buttons
+    document.getElementById('stat1').innerHTML = stat1;
+    document.getElementById('stat1').setAttribute("statValue", stat1);
+
+    document.getElementById('stat2').innerHTML = stat2;
+    document.getElementById('stat2').setAttribute("statValue", stat2);
+
+    document.getElementById('stat3').innerHTML = stat3;
+    document.getElementById('stat3').setAttribute("statValue", stat3);
+
+    document.getElementById('stat4').innerHTML = stat4;
+    document.getElementById('stat4').setAttribute("statValue", stat4);
+
+    document.getElementById('stat5').innerHTML = stat5;
+    document.getElementById('stat5').setAttribute("statValue", stat5);
+
+    document.getElementById('stat6').innerHTML = stat6;
+    document.getElementById('stat6').setAttribute("statValue", stat6);
+
+    /**
+     * I tried to use a for loop, but it was breaking my drag and drop function
+     */
     // create an array with the stat values in it
-    const statArray = [stat1, stat2, stat3, stat4, stat5, stat6];
+
+    // const statArray = [stat1, stat2, stat3, stat4, stat5, stat6];
 
     // Create buttons with the stat values in them
-    for ( let i = 0; i < statArray.length; i++ )    {
-
-        const button = document.createElement('button');        // Create button elements
-        let section = document.getElementById('statButtons');   // Get the parent element
-
-
-        button.textContent = statArray[i];                            // Fill values into the Buttons
-        section.appendChild(button);                                  // Append to section element
-        button.classList.add("statButton");                           // add a class to the buttons
-        button.setAttribute("draggable", "true");   // Add draggable attribute
-        button.setAttribute("statValue", statArray[i]);   // Add stat value attribute
-        button.setAttribute("ondragstart", "drag(event)");
-    }
+    // for ( let i = 0; i < statArray.length; i++ )    {
+    //
+    //     const button = document.createElement('button');        // Create button elements
+    //     let section = document.getElementById('statButtons');   // Get the parent element
+    //
+    //
+    //     button.textContent = statArray[i];                            // Fill values into the Buttons
+    //     section.appendChild(button);                                  // Append to section element
+    //     button.classList.add("statButton");                           // add a class to the buttons
+    //     button.setAttribute("draggable", "true");   // Add draggable attribute
+    //     button.setAttribute("statValue", statArray[i]);   // Add stat value attribute
+    //     button.setAttribute("ondragstart", "drag(event)");
+    // }
 });
+
+
 /*******************************************************************************************/
 /*                     RETRIEVE STATS AND PASS THEM INTO THE JSON FILE                     */
 /*******************************************************************************************/
-
-const dropStatsForm = document.forms['dropStats'];
-
+// Var is made at top of doc
 dropStatsForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     // Get the values from the form
     let strength = dropStatsForm.querySelector('#strength').querySelector('button').getAttribute("statValue");
-    // let dexterity = document.getElementById('statValue2').value;
-    // let constitution = document.getElementById('statValue3').value;
-    // let intelligence = document.getElementById('statValue4').value;
-    // let wisdom = document.getElementById('statValue5').value;
-    // let charisma = document.getElementById('statValue6').value;
-    console.log(strength);
+    let dexterity = dropStatsForm.querySelector('#dexterity').querySelector('button').getAttribute("statValue");
+    let constitution = dropStatsForm.querySelector('#constitution').querySelector('button').getAttribute("statValue");
+    let intelligence = dropStatsForm.querySelector('#intelligence').querySelector('button').getAttribute("statValue");
+    let wisdom = dropStatsForm.querySelector('#wisdom').querySelector('button').getAttribute("statValue");
+    let charisma = dropStatsForm.querySelector('#charisma').querySelector('button').getAttribute("statValue");
+
+    console.log('\nStrength' + strength +
+        '\ndexterity' + dexterity +
+        '\nconstitution' + constitution +
+        '\nintelligence' + intelligence +
+        '\nwisdom' + wisdom +
+        '\ncharisma' + charisma);
 });
