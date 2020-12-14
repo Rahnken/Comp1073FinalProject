@@ -140,14 +140,12 @@ function allowDrop(ev) {
 
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
-    console.log('start');
 }
 
 function drop(ev) {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
-    console.log('end');
 }
 
 /*******************************************************************************************/
@@ -274,9 +272,36 @@ statValuesForm.addEventListener('submit', function (e) {
 /*******************************************************************************************/
 /*                     RETRIEVE STATS AND PASS THEM INTO THE JSON FILE                     */
 /*******************************************************************************************/
+
 // Var is made at top of doc
 dropStatsForm.addEventListener('submit', function (e) {
-    e.preventDefault();
+    if (
+            !strengthBonus.hasChildNodes()
+        ||  !dexterityBonus.hasChildNodes()
+        ||  !constitutionBonus.hasChildNodes()
+        ||  !intelligenceBonus.hasChildNodes()
+        ||  !wisdomBonus.hasChildNodes()
+        ||  !charismaBonus.hasChildNodes()
+    )
+    {
+        e.preventDefault();
+        document.getElementById('statSubmitError').innerHTML= "All stats need to have values";
+    }
+
+    else if (
+        strengthBonus.hasChildNodes() > 1
+        ||  dexterityBonus.hasChildNodes() > 1
+        ||  constitutionBonus.hasChildNodes() > 1
+        ||  intelligenceBonus.hasChildNodes() > 1
+        ||  wisdomBonus.hasChildNodes() > 1
+        ||  charismaBonus.hasChildNodes() > 1
+    )
+    {
+        e.preventDefault();
+        document.getElementById('statSubmitError').innerHTML= "Can only have 1 value for each stat";
+    }
+
+    else {
 
     // Get the values from the form
     let strength = dropStatsForm.querySelector('#strength').querySelector('button').getAttribute("statValue");
@@ -300,5 +325,17 @@ dropStatsForm.addEventListener('submit', function (e) {
         '\nwisdom: ' + wisdomFinal +
         '\ncharisma: ' + charismaFinal
     );
+
+        //clear the warning
+        document.getElementById('statSubmitError').innerHTML="";
+
+        //store the data
+        localStorage.setItem('strength', strengthFinal);
+        localStorage.setItem('dexterity', dexterityFinal);
+        localStorage.setItem('constitution', constitutionFinal);
+        localStorage.setItem('intelligence', intelligenceFinal);
+        localStorage.setItem('wisdom', wisdomFinal);
+        localStorage.setItem('charisma', charismaFinal);
+    }
 
 });
