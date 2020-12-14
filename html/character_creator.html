@@ -48,7 +48,6 @@ Main Author:  Stephanie Holly Bedard, 200443133
         <button id="btn_name" onclick="generateName()">Generate Random Name</button>
     <p id ="name_result"></p>
 
-
     <!--CLASS SELECTION-->
         <label for="class_input">Select Your Character's Class:</label>
             <select id="class_input" onchange="fillResult('class_input','class_result')">
@@ -64,41 +63,40 @@ Main Author:  Stephanie Holly Bedard, 200443133
         <button id="btn_background" onclick="randomSelector('background_input','background_result')">Choose Random Background</button>
         <p id = "background_result"></p>
     <!--BACKGROUND DETAILS-->
-        <p>Roll Dice For Background Details:</p>
-        <p> You can roll your own dice and enter the value, or make a random roll here</p>
+        <p id="bgDetailHeader">Roll Dice For Background Details:</p>
+        <p id="bgDetailDesc" > You can roll your own dice and enter the value, or make a random roll here</p>
         <!--Roll for Specialty and Results-->
         <div>
             <button id="btn_specialty" onclick="roll(8, 'specialty', 'specialty_img')">Random Specialty</button>
             <input id = "specialty" type="number" min = "1" max = "8" ><br>
-            <img id="specialty_img" src = "..\img\defaultD8.png" width="100px" height="100px">
+            <img id="specialty_img" src = "..\img\defaultD8.png">
         </div>
         <!--Roll for Trait and Results-->
         <div>
             <button id="btn_trait" onclick="roll(8, 'trait','trait_img')">Random Trait</button>
             <input id = "trait" type="number" min = "1" max = "8" ><br>
-            <img id="trait_img" src = "..\img\defaultD8.png" width="100px" height="100px">
+            <img id="trait_img" src = "..\img\defaultD8.png">
         </div>
         <!--Roll for Ideals and Results-->
         <div>
             <button id="btn_ideals" onclick="roll(6, 'charIdeals','charIdeals_img')"> Random Ideals</button>
             <input id = "charIdeals" type="number" min = "1" max = "6" ><br>
-            <img id="charIdeals_img" src = "..\img\defaultDice.png" width="100px" height="100px">
+            <img id="charIdeals_img" src = "..\img\defaultDice.png" >
         </div>
         <!--Roll for Bond and Results-->
         <div>
             <button id="btn_bond" onclick="roll(6, 'bond','bond_img')">Random Bond</button>
             <input id = "bond" type="number" min = "1" max = "6" ><br>
-            <img id="bond_img" src = "..\img\defaultDice.png" width="100px" height="100px">
+            <img id="bond_img" src = "..\img\defaultDice.png" >
         </div>
         <!--Roll for Flaw and Results-->
         <div>
             <button id="btn_flaw" onclick="roll(6, 'flaw', 'flaw_img')">Random Flaw</button>
             <input id = "flaw" type="number" min = "1" max = "6" ><br>
-            <img id="flaw_img" src = "..\img\defaultDice.png" width="100px" height="100px">
+            <img id="flaw_img" src = "..\img\defaultDice.png" >
         </div>
         <!--Button to show all Character Detail Results-->
-        <button onclick="getDetails()">Reveal Character Details</button>
-        <p id="reveal_warning"></p>
+        <button  id ="CharBioButton" onclick="getDetails()">Reveal Character Details</button>
         <p id="character_bio"></p>
         <!--divs to store data to pass to next page-->
         <div id="feature_hidden" style="display: none"></div>
@@ -107,8 +105,7 @@ Main Author:  Stephanie Holly Bedard, 200443133
         <div id="charIdeals_hidden" style="display: none"></div>
         <div id="bond_hidden" style="display: none"></div>
         <div id="flaw_hidden" style="display: none"></div>
-    <button type="submit" onclick="saveData()">Continue To Character Stats Page</button>
-    <p id="submitWarning"></p>
+    <button id="continueButton" type="submit" onclick="saveData()">Continue To Character Stats Page</button>
 </form>
 
 <script type="text/javascript" src="../js/char_creator.js"></script>
