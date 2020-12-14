@@ -58,9 +58,9 @@ Main Author:  Stephanie Holly Bedard, 200443133
     <!--CLASS SELECTION-->
     <fieldset id="class_selection">
         <label for="class_input">Select Your Character's Class:</label>
-        <select id="class_input" onchange="fillResult('class_input','class_result')">
-            <option selected disabled>Choose Class...</option>
-        </select>
+            <select id="class_input" onchange="fillResult('class_input','class_result')">
+                <option selected disabled>Choose Class...</option>
+            </select>
         <button id="btn_class" onclick="randomSelector('class_input','class_result')">Choose Random Class</button>
         <p id = "class_result" ></p>
     </fieldset>
@@ -84,40 +84,41 @@ Main Author:  Stephanie Holly Bedard, 200443133
         <div>
             <button id="btn_specialty" onclick="roll(8, 'specialty', 'specialty_img')">Random Specialty</button>
             <input id = "specialty" type="text" placeholder="Roll D8 and Enter Number" ><br>
-            <img id="specialty_img" width="100px" height="100px">
+            <img id="specialty_img" src = "..\img\defaultD8.png" width="100px" height="100px">
         </div>
 
         <!--Roll for Trait and Results-->
         <div>
             <button id="btn_trait" onclick="roll(8, 'trait','trait_img')">Random Trait</button>
             <input id = "trait" type="text" placeholder="Roll D8 and Enter Number" ><br>
-            <img id="trait_img" width="100px" height="100px">
+            <img id="trait_img" src = "..\img\defaultD8.png" width="100px" height="100px">
         </div>
 
  
         <!--Roll for Ideals and Results-->
-        <fieldset>
+        <div>
             <button id="btn_ideals" onclick="roll(6, 'charIdeals','charIdeals_img')"> Random Ideals</button>
             <input id = "charIdeals" type="text" placeholder="Roll D6 and Enter Number" ><br>
-            <img id="charIdeals_img" width="100px" height="100px">
-      </fieldset>
+            <img id="charIdeals_img" src = "..\img\defaultDice.png" width="100px" height="100px">
+        </div>
         
         <!--Roll for Bond and Results-->
         <div>
             <button id="btn_bond" onclick="roll(6, 'bond','bond_img')">Random Bond</button>
             <input id = "bond" type="text" placeholder="Roll D6 and Enter Number" ><br>
-            <img id="bond_img" width="100px" height="100px">
+            <img id="bond_img" src = "..\img\defaultDice.png" width="100px" height="100px">
         </div>
 
         <!--Roll for Flaw and Results-->
         <div>
             <button id="btn_flaw" onclick="roll(6, 'flaw', 'flaw_img')">Random Flaw</button>
             <input id = "flaw" type="text" placeholder="Roll D6 and Enter Number" ><br>
-            <img id="flaw_img" width="100px" height="100px">
+            <img id="flaw_img" src = "..\img\defaultDice.png" width="100px" height="100px">
         </div>
 
         <!--Button to show all Character Detail Results-->
         <button onclick="getDetails()">Reveal Character Details</button>
+        <p id="reveal_warning"></p>
         <p id="character_bio"></p>
 
         <!--divs to store data to pass to next page-->
