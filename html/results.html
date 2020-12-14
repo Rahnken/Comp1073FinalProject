@@ -131,9 +131,9 @@
             <li>Ideals: <span id="charIdeals">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
             <li>Bonds: <span id="charBonds">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
             <li>Flaws: <span id="charFlaws">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
+        <li><b>Background: </b> <span id="charBackground">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
+        <li><b>Feature: </b> <span id="charFeature">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
         </ul>
-        <p><b>Background:</b> <span id="charBackground">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></p>
-        <p><b>Background:</b> <span id="charFeature">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></p>
     </div>
 
 </div>
@@ -180,17 +180,17 @@
     charLevel.innerHTML = "1";
 
     //Stats
-    strBase.innerHTML = "2";
+    strBase.innerHTML = localStorage.getItem('strength');
     strMod.innerHTML = "2";
-    dexBase.innerHTML = "2";
+    dexBase.innerHTML = localStorage.getItem('dexterity');
     dexMod.innerHTML = "2";
-    conBase.innerHTML = "2";
+    conBase.innerHTML = localStorage.getItem('constitution');
     conMod.innerHTML = "2";
-    intelBase.innerHTML = "2";
+    intelBase.innerHTML = localStorage.getItem('intelligence');
     intelMod.innerHTML = "2";
-    wisBase.innerHTML = "2";
+    wisBase.innerHTML = localStorage.getItem('wisdom');
     wisMod.innerHTML = "2";
-    charismaBase.innerHTML = "2";
+    charismaBase.innerHTML = localStorage.getItem('charisma');
     charismaMod.innerHTML = "2";
 
     //Extra  descriptors
