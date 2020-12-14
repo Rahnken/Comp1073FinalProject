@@ -133,6 +133,7 @@
             <li>Flaws: <span id="charFlaws">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
         </ul>
         <p><b>Background:</b> <span id="charBackground">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></p>
+        <p><b>Background:</b> <span id="charFeature">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></p>
     </div>
 
 </div>
@@ -167,15 +168,16 @@
     charIdeals = document.querySelector("span#charIdeals");
     charBonds = document.querySelector("span#charBonds");
     charFlaws = document.querySelector("span#charFlaws");
-
+    charBackground = document.querySelector("span#charBackground");
+    charFeature = document.querySelector("span#charFeature");
 
     //placeholder values while I figure out loading input from page
     //basic descriptors
-    charName.innerHTML = "Testus";
-    charClass.innerHTML = "Smithus";
-    charRace.innerHTML = "Dwarf";
-    charGender.innerHTML = "My Axe";
-    charLevel.innerHTML = "1337";
+    charName.innerHTML = localStorage.getItem('name');
+    charClass.innerHTML = localStorage.getItem('charClass');
+    charRace.innerHTML = localStorage.getItem('race');
+    charGender.innerHTML = localStorage.getItem('gender');
+    charLevel.innerHTML = "1";
 
     //Stats
     strBase.innerHTML = "2";
@@ -192,11 +194,14 @@
     charismaMod.innerHTML = "2";
 
     //Extra  descriptors
-    charSpecialty.innerHTML = "A sentence";
-    charTrait.innerHTML = "B sentence";
-    charIdeals.innerHTML = "C sentence";
-    charBonds.innerHTML = "D sentence";
-    charFlaws.innerHTML = "E sentence";
+    charSpecialty.innerHTML = localStorage.getItem('specialty');
+    charTrait.innerHTML = localStorage.getItem('trait');
+    charIdeals.innerHTML = localStorage.getItem('charIdeals');
+    charBonds.innerHTML = localStorage.getItem('bond');
+    charFlaws.innerHTML = localStorage.getItem('flaw');
+
+    charBackground.innerHTML= localStorage.getItem('background');
+    charFeature.innerHTML= localStorage.getItem('feature');
 </script>
 </body>
 </html>
