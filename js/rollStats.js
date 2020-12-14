@@ -9,6 +9,16 @@
  */
 
 /*******************************************************************************************/
+/*                                   APPLY STAT BONUSES                                    */
+/*******************************************************************************************/
+
+// switch (race)   {
+//     case '':
+//
+//         break;
+// }
+
+/*******************************************************************************************/
 /*                               DRAG AND DROP FUNCTION                                    */
 /*******************************************************************************************/
 
@@ -115,32 +125,50 @@ statValuesForm.addEventListener('submit', function (e) {
     e.preventDefault();
 
     //const values = statValuesForm.querySelectorAll().value;
-    const formValues = statValuesForm.getElementsByTagName('input').value;
+    // const formValues = statValuesForm.getElementsByTagName('input').value;
+    // console.log(formValues);
 
-    console.log(formValues);
+    // Get the values from the form
+    let stat1 = document.getElementById('statValue1').value;
+    let stat2 = document.getElementById('statValue2').value;
+    let stat3 = document.getElementById('statValue3').value;
+    let stat4 = document.getElementById('statValue4').value;
+    let stat5 = document.getElementById('statValue5').value;
+    let stat6 = document.getElementById('statValue6').value;
 
-    Array.from(formValues).forEach(function (formValue) {
+    // create an array with the stat values in it
+    const statArray = [stat1, stat2, stat3, stat4, stat5, stat6];
+
+    // Create buttons with the stat values in them
+    for ( let i = 0; i < statArray.length; i++ )    {
 
         const button = document.createElement('button');        // Create button elements
         let section = document.getElementById('statButtons');   // Get the parent element
 
-        button.textContent = formValue.toString();          // Fill values into the Buttons
-        section.appendChild(button);                    // Append to section element
-        console.log(value);
-    });
+
+        button.textContent = statArray[i];                            // Fill values into the Buttons
+        section.appendChild(button);                                  // Append to section element
+        button.classList.add("statButton");                           // add a class to the buttons
+        button.setAttribute("draggable", "true");   // Add draggable attribute
+        button.setAttribute("statValue", statArray[i]);   // Add stat value attribute
+        button.setAttribute("ondragstart", "drag(event)");
+    }
 });
-
-function submitStats(statValue1,statValue2,statValue3,statValue4,statValue5,statValue6)  {
-    event.preventDefault();
-    // let stat1 = document.getElementById(statValue1).value;
-    // let stat2 = document.getElementById(statValue1).value;
-    // let stat3 = document.getElementById(statValue1).value;
-    // let stat4 = document.getElementById(statValue1).value;
-    // let stat5 = document.getElementById(statValue1).value;
-    // let stat6 = document.getElementById(statValue1).value;
-
-}
-
 /*******************************************************************************************/
 /*                     RETRIEVE STATS AND PASS THEM INTO THE JSON FILE                     */
 /*******************************************************************************************/
+
+const dropStatsForm = document.forms['dropStats'];
+
+dropStatsForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    // Get the values from the form
+    let strength = dropStatsForm.querySelector('#strength').querySelector('button').getAttribute("statValue");
+    // let dexterity = document.getElementById('statValue2').value;
+    // let constitution = document.getElementById('statValue3').value;
+    // let intelligence = document.getElementById('statValue4').value;
+    // let wisdom = document.getElementById('statValue5').value;
+    // let charisma = document.getElementById('statValue6').value;
+    console.log(strength);
+});
