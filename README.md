@@ -4,8 +4,9 @@
 #### The Break It Group 
  > Holly Bedard 200443133 <br>
  > Michael Caldwell 200445010 <br> 
+ > Jordan Coulter 200236142 <br>
  > Eric Donnelly 200433532  <br>
-    Lani Low 200440104 
+ > Lani Low 200440104 
  
  
 >>Client-Side JavaScript Comp 1073 <br>
@@ -19,11 +20,12 @@ We will have a landing page where clients can create an account or login to an e
 ### Development Environments and Third-party Integrations
 > Stephanie /Holly IDE - Webstorm <br>
 > Michael - Webstorm <br>
+> Jordan -  <br>
 > Eric - WebStorm <br>
 > Lani IDE - notepad/ atom <br>
 
->Third-party frameworks - Bootstrap CSS framework <br>
-Database - MySQL
+Third-party Integration 
+ > Jquery - Google Hosted
 
 ## Functional Requirements / Use Cases
 
@@ -65,8 +67,6 @@ Database - MySQL
 
 ##### CSS
 - creating a cohesive style for all pages
-- adjusting bootstrap classes 
-
 
 ## Project Design
 
@@ -80,20 +80,20 @@ By: Michael Caldwell
 
 ##### Here’s a list of our currently planned features:
 - [ ] Home (landing page)
-- [ ] Login page (html w/ JS)
+- [x] Login page (html w/ JS)
 - [x] Registration Page
-- [ ] Character Creation  (html w/ JS)
+- [x] Character Creation  (html w/ JS)
 - [ ] Output page w/ print  (html w/ JS)
 - [ ] Stylesheet
-- [ ] Database/ Json files 
+- [x]  Json files 
 
 ##### And the following is a breakdown of what work we will each be responsible for :
 ###### Holly Bedard
-- [ ] Character creation page:
+- [x] Character creation page:
 
-- [ ] Responsible for the code which allows the user to create characters
+- [x] Responsible for the code which allows the user to create characters
     - Some fields generated with dice roll, others with dropdown menu
-- [ ] Character stat fields include:
+- [x] Character stat fields include:
     - Name 
     - Race 
     - Class  
@@ -121,32 +121,24 @@ The user has three options for creating their character:
 
 If the user uses the randomizer tool, these input fields will be auto-populated with the results of the tool.
 
-- [ ] Create event listeners for each field which dynamically change main character image using the selected character stat.  
-- [ ] Data will be stored in a JSON file, which can also be stored in the database linked to the user if the user wants to return to edit their character later.
+- [x] Create event listeners for each field which dynamically change main character image using the selected character stat.
 ###### Michael Caldwell
 - [x] Visio block diagram for project proposal 
     - shows the general flow of how a user will interact with our website.
-- [ ] Output page - responsible for outputting a formatted character sheet that is ready for printing. This will involve retrieving data from our database or json file. 
-- [ ] Character classes 
-    - Multiple classes that define what a base character is, and any racial variants (Elf, Dwarf, Human, Gnome, etc) will be defined through inheritance as needed.
+- [x] Output page - responsible for outputting a formatted character sheet that is ready for printing. This will involve retrieving data from our database or json file. 
+
+###### Jordan Coulter
+- [ ] Home Page / Landing Page 
+    - a page that prompts the user to create a character
+    - Explains the use of the website 
+    
 ###### Eric Donnelly
 - [ ] CSS
     - will create a cohesive  design for all pages 
     - modify bootstrap css as required for desired look
-- [ ] Test cases
-    - develop test cases to check validation and outputs 
-- [ ] Validation
-    - create/ implement  validation methods in character creator object
-- [ ] Databases
-        - The user database and character database
-        - It will be a local database
-        - User table will have the 
-            -  primary key of UserID 
-            - foreign key of CharacterID
-            
-    *Users can have multiple characters, but characters can only have one user associated with them.* 
-
-
+- [ ] Default Characters
+    - Set of characters that a user can use with just an update to the name
+    
 ###### Lani Low
 - [x] Login/ register pages
     - Login page will have fields to input username and password
@@ -156,9 +148,6 @@ If the user uses the randomizer tool, these input fields will be auto-populated 
         - email 
         - first name
         - last name
-    - Will be connected to a database
-- [ ] Images
-    - I will draw images, maybe not that great
 - [ ] load/ save characters
         - create methods to save characters for users and load saved characters for editing
 
