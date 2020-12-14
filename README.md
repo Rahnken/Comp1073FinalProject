@@ -79,12 +79,12 @@ By: Michael Caldwell
 >we do plan on reviewing each other's sections for a better understanding of our overall project.**_
 
 ##### Here’s a list of our currently planned features:
-- [ ] Home (landing page)
+- [x] Home (landing page)
 - [x] Login page (html w/ JS)
 - [x] Registration Page
 - [x] Character Creation  (html w/ JS)
-- [ ] Output page w/ print  (html w/ JS)
-- [ ] Stylesheet
+- [x] Output page  (html w/ JS)
+- [x] Stylesheet
 - [x]  Json files 
 
 ##### And the following is a breakdown of what work we will each be responsible for :
@@ -94,25 +94,26 @@ By: Michael Caldwell
 - [x] Responsible for the code which allows the user to create characters
     - Some fields generated with dice roll, others with dropdown menu
 - [x] Character stat fields include:
+    
     - Name 
     - Race 
-    - Class  
-    - Background
+    - Class
+    - Gender
     - Level
-    -Ability Scores 
-        - Strength
-        - Dexterity
-        - Constitution
-        - Intelligence
-        - Wisdom
-        - Charisma
-    - Skills
-    - Equipment 
-        - Armour
-        - Tools
-    - Senses
-    - Languages
-    - Spells
+    
+    - Strength
+    - Dexterity
+    - Constitution
+    - Intelligence
+    - Wisdom
+    - Charisma
+    
+    - Trait
+    - Ideals
+    - Bonds
+    - Flaws
+    - Background
+    - Feauture
 
 The user has three options for creating their character:
 1. Use a button that randomly selects values for each of the stats fields all at once.  
@@ -125,7 +126,7 @@ If the user uses the randomizer tool, these input fields will be auto-populated 
 ###### Michael Caldwell
 - [x] Visio block diagram for project proposal 
     - shows the general flow of how a user will interact with our website.
-- [x] Output page - responsible for outputting a formatted character sheet that is ready for printing. This will involve retrieving data from our database or json file. 
+- [x] Output page - responsible for outputting a formatted character sheet that is ready for printing. This will involve retrieving data from our localstorage. 
 
 ###### Jordan Coulter
 - [ ] Home Page / Landing Page 
