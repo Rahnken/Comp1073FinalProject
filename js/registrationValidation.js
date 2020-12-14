@@ -3,12 +3,14 @@
  *  This page uses functions to validate if each field in the form is
  *  correctly filled. Custom error messages are returned if not.
  *
- * @returns {boolean}
  * @author Lani Low
  *
  */
 
-
+/**
+ * Checks is all fields are valid
+ * @returns {boolean}
+ */
 function validateForm()
 {
     firstNameValidation();
@@ -25,6 +27,7 @@ function validateForm()
 }
 
 /**
+ * Creates error messages to explain errors to users
  *
  * @returns {boolean}
  */

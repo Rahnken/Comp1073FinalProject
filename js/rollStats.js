@@ -1,4 +1,16 @@
+/**
+ *
+ * This page is for user to roll stat values then assign them to the
+ * desired stat. It is then saved into a Json file and passed on to
+ * the next page
+ *
+ * @author Lani Low
+ *
+ */
 
+/*******************************************************************************************/
+/*                               DRAG AND DROP FUNCTION                                    */
+/*******************************************************************************************/
 
 function allowDrop(ev) {
     ev.preventDefault();
@@ -11,7 +23,7 @@ function drag(ev) {
 
 function drop(ev) {
     ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
+    let data = ev.dataTransfer.getData("text");
     ev.target.appendChild(document.getElementById(data));
     console.log('end');
 }
@@ -32,27 +44,27 @@ function drop(ev) {
 //     console.log('end');
 // }
 
-// Stop Submissions
-function stopSubmit(){
-    //get the form
-    const form = document.getElementById('form');
-
-    //prevent form from default submitting on completion
-    form.addEventListener("submit", function(event){
-        event.preventDefault();
-    })
-}
-
 /*******************************************************************************************/
 /*                                     ROLL STATS                                          */
 /*******************************************************************************************/
 
+/**
+ * This function is used to roll the dice for stats
+ *
+ * @param output
+ * @param img1 these are the dice that show up on the page
+ * @param img2
+ * @param img3
+ * @param img4
+ */
 function roll(output, img1, img2, img3, img4){
     //stop form from submitting
     event.preventDefault();
 
+    // For stats a 6 sided dice is used
     let diceType = 6 ;
 
+    // randomize the value of each dice
     let diceRoll1 = Math.floor(Math.random() * diceType)+1;
     let diceRoll2 = Math.floor(Math.random() * diceType)+1;
     let diceRoll3 = Math.floor(Math.random() * diceType)+1;
@@ -93,9 +105,30 @@ function roll(output, img1, img2, img3, img4){
     document.getElementById(img4).classList.add("rotate");
 }
 
-/**
- * SUBMIT STATS TO NEXT STAGE
- */
+/*******************************************************************************************/
+/*                          SUBMIT STATS TO DRAG AND DROP BUTTONS                          */
+/*******************************************************************************************/
+
+const statValuesForm = document.forms['statValues'];
+
+statValuesForm.addEventListener('submit', function (e) {
+    e.preventDefault();
+
+    //const values = statValuesForm.querySelectorAll().value;
+    const formValues = statValuesForm.getElementsByTagName('input').value;
+
+    console.log(formValues);
+
+    Array.from(formValues).forEach(function (formValue) {
+
+        const button = document.createElement('button');        // Create button elements
+        let section = document.getElementById('statButtons');   // Get the parent element
+
+        button.textContent = formValue.toString();          // Fill values into the Buttons
+        section.appendChild(button);                    // Append to section element
+        console.log(value);
+    });
+});
 
 function submitStats(statValue1,statValue2,statValue3,statValue4,statValue5,statValue6)  {
     event.preventDefault();
@@ -106,8 +139,8 @@ function submitStats(statValue1,statValue2,statValue3,statValue4,statValue5,stat
     // let stat5 = document.getElementById(statValue1).value;
     // let stat6 = document.getElementById(statValue1).value;
 
-    document.getElementById(stat1).value =
-
-
-    console.log(stat1);
 }
+
+/*******************************************************************************************/
+/*                     RETRIEVE STATS AND PASS THEM INTO THE JSON FILE                     */
+/*******************************************************************************************/
