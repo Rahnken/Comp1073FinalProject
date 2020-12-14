@@ -8,6 +8,15 @@
  *
  */
 
+
+// Create final stat vars
+let strengthFinal = 0;
+let dexterityFinal = 0;
+let constitutionFinal = 0;
+let intelligenceFinal = 0;
+let wisdomFinal = 0;
+let charismaFinal = 0;
+
 /*******************************************************************************************/
 /*                                   APPLY STAT BONUSES                                    */
 /*******************************************************************************************/
@@ -23,48 +32,56 @@ let intelligenceBonus = dropStatsForm.querySelector('#intelligence');
 let wisdomBonus = dropStatsForm.querySelector('#wisdom');
 let charismaBonus = dropStatsForm.querySelector('#charisma');
 
-
 let charRace;
-charRace.innerHTML = localStorage.getItem('race');
+charRace = localStorage.getItem('race').toLowerCase();
 
 switch (charRace)   {
     case 'dragonborn':
         p.textContent = '+ 2';
         strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);
+        strengthFinal += 2;
         p2.textContent = '+ 1';
         charismaBonus.parentNode.insertBefore(p2, charismaBonus.nextSibling);
+        charismaFinal += 1;
         break;
 
     case 'dwarf':
         p.textContent = '+ 2';
         constitutionBonus.parentNode.insertBefore(p, constitutionBonus.nextSibling);
+        constitutionFinal += 2;
         break;
 
     case 'elf':
         p.textContent = '+ 2';
         dexterityBonus.parentNode.insertBefore(p, dexterityBonus.nextSibling);
+        dexterityFinal += 2;
         break;
 
     case 'gnome':
         p.textContent = '+ 2';
         intelligenceBonus.parentNode.insertBefore(p, intelligenceBonus.nextSibling);
+        intelligenceFinal += 2;
         break;
 
     case 'half-elf':
         p.textContent = '+ 2';
         charismaBonus.parentNode.insertBefore(p, charismaBonus.nextSibling);
+        charismaFinal += 2;
         break;
 
     case 'half-orc':
         p.textContent = '+ 2';
         strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);
+        strengthFinal += 2;
         p2.textContent = '+ 1';
         constitutionBonus.parentNode.insertBefore(p2, constitutionBonus.nextSibling);
+        constitutionFinal += 1;
         break;
 
     case 'halfling':
         p.textContent = '+ 2';
         dexterityBonus.parentNode.insertBefore(p, dexterityBonus.nextSibling);
+        dexterityFinal += 2;
         break;
 
     case 'human':
@@ -75,29 +92,37 @@ switch (charRace)   {
 
         p.textContent = '+ 1';
         strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);
+        strengthFinal += 1;
 
         p2.textContent = '+ 1';
         dexterityBonus.parentNode.insertBefore(p2, dexterityBonus.nextSibling);
+        dexterityFinal += 1;
 
         p3.textContent = '+ 1';
         constitutionBonus.parentNode.insertBefore(p3, constitutionBonus.nextSibling);
+        constitutionFinal += 1;
 
         p4.textContent = '+ 1';
         intelligenceBonus.parentNode.insertBefore(p4, intelligenceBonus.nextSibling);
+        intelligenceFinal += 1;
 
         p5.textContent = '+ 1';
         wisdomBonus.parentNode.insertBefore(p5, wisdomBonus.nextSibling);
+        wisdomFinal += 1;
 
         p6.textContent = '+ 1';
         charismaBonus.parentNode.insertBefore(p6, charismaBonus.nextSibling);
+        charismaFinal +=1;
 
         break;
 
     case 'tiefling':
         p.textContent = '+ 1';
         intelligenceBonus.parentNode.insertBefore(p, intelligenceBonus.nextSibling);
+        intelligenceFinal += 1;
         p2.textContent = '+ 2';
         charismaBonus.parentNode.insertBefore(p2, charismaBonus.nextSibling);
+        charismaFinal += 2;
         break;
 
     default:
@@ -261,10 +286,19 @@ dropStatsForm.addEventListener('submit', function (e) {
     let wisdom = dropStatsForm.querySelector('#wisdom').querySelector('button').getAttribute("statValue");
     let charisma = dropStatsForm.querySelector('#charisma').querySelector('button').getAttribute("statValue");
 
-    console.log('\nStrength' + strength +
-        '\ndexterity' + dexterity +
-        '\nconstitution' + constitution +
-        '\nintelligence' + intelligence +
-        '\nwisdom' + wisdom +
-        '\ncharisma' + charisma);
+    strengthFinal += parseInt(strength);
+    dexterityFinal += parseInt(dexterity);
+    constitutionFinal += parseInt(constitution);
+    intelligenceFinal += parseInt(intelligence);
+    wisdomFinal += parseInt(wisdom);
+    charismaFinal += parseInt(charisma);
+
+    console.log('\nStrength: ' + strengthFinal +
+        '\ndexterity: ' + dexterityFinal +
+        '\nconstitution: ' + constitutionFinal +
+        '\nintelligence: ' + intelligenceFinal +
+        '\nwisdom: ' + wisdomFinal +
+        '\ncharisma: ' + charismaFinal
+    );
+
 });
