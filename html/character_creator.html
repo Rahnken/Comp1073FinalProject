@@ -79,18 +79,19 @@ Main Author:  Stephanie Holly Bedard, 200443133
     <!--BACKGROUND DETAILS-->
     <fieldset id="background_details">
         <p>Roll Dice For Background Details:</p>
+        <p> You can roll your own dice and enter the value, or make a random roll here</p>
 
         <!--Roll for Specialty and Results-->
         <div>
             <button id="btn_specialty" onclick="roll(8, 'specialty', 'specialty_img')">Random Specialty</button>
-            <input id = "specialty" type="text" placeholder="Roll D8 and Enter Number" ><br>
+            <input id = "specialty" type="number" min = "1" max = "8" ><br>
             <img id="specialty_img" src = "..\img\defaultD8.png" width="100px" height="100px">
         </div>
 
         <!--Roll for Trait and Results-->
         <div>
             <button id="btn_trait" onclick="roll(8, 'trait','trait_img')">Random Trait</button>
-            <input id = "trait" type="text" placeholder="Roll D8 and Enter Number" ><br>
+            <input id = "trait" type="number" min = "1" max = "8" ><br>
             <img id="trait_img" src = "..\img\defaultD8.png" width="100px" height="100px">
         </div>
 
@@ -98,21 +99,21 @@ Main Author:  Stephanie Holly Bedard, 200443133
         <!--Roll for Ideals and Results-->
         <div>
             <button id="btn_ideals" onclick="roll(6, 'charIdeals','charIdeals_img')"> Random Ideals</button>
-            <input id = "charIdeals" type="text" placeholder="Roll D6 and Enter Number" ><br>
+            <input id = "charIdeals" type="number" min = "1" max = "6" ><br>
             <img id="charIdeals_img" src = "..\img\defaultDice.png" width="100px" height="100px">
         </div>
         
         <!--Roll for Bond and Results-->
         <div>
             <button id="btn_bond" onclick="roll(6, 'bond','bond_img')">Random Bond</button>
-            <input id = "bond" type="text" placeholder="Roll D6 and Enter Number" ><br>
+            <input id = "bond" type="number" min = "1" max = "6" ><br>
             <img id="bond_img" src = "..\img\defaultDice.png" width="100px" height="100px">
         </div>
 
         <!--Roll for Flaw and Results-->
         <div>
             <button id="btn_flaw" onclick="roll(6, 'flaw', 'flaw_img')">Random Flaw</button>
-            <input id = "flaw" type="text" placeholder="Roll D6 and Enter Number" ><br>
+            <input id = "flaw" type="number" min = "1" max = "6" ><br>
             <img id="flaw_img" src = "..\img\defaultDice.png" width="100px" height="100px">
         </div>
 
