@@ -421,6 +421,7 @@ function generateName(){
 
     //output resulting random name to the random name box
     document.getElementById("input_name").value = randomName;
+    document.getElementById('name_result').innerHTML = randomName;
 }
 
 
