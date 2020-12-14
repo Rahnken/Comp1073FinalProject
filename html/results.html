@@ -85,13 +85,13 @@
 <h1>Home Page</h1>
 <div id="printTarget" >
     <div class="wrapperSpaced">
-        <h2>Name: <span id="characterName">John Doe</span></h2>
+        <h2>Name: <span id="charName">John Doe</span></h2>
 
         <ul id="characterInfo" class="HList">
-            <li>Class: <span id="characterClass">Assassin</span></li>
-            <li>Race: <span id="characterRace">Dragonborn</span></li>
-            <li>Gender: <span id="characterGender">Male</span></li>
-            <li>Level: <span id="characterLevel">1</span></li>
+            <li>Class: <span id="charClass">Assassin</span></li>
+            <li>Race: <span id="charRace">Dragonborn</span></li>
+            <li>Gender: <span id="charGender">Male</span></li>
+            <li>Level: <span id="charLevel">1</span></li>
         </ul>
 
     </div>
@@ -129,9 +129,71 @@
             <li>Bonds: <span id="charBonds">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
             <li>Flaws: <span id="charFlaws">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></li>
         </ul>
-        <p><b>Background:</b> <span>At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></p>
+        <p><b>Background:</b> <span id="charBackground">At vero eos et accusamus et iusto odio dignissimos ducimus qui blanditiis spanraesentium voluspantatum deleniti atque corruspanti quos dolores et quas molestias excespanturi sint occaecati cuspaniditate non spanrovident, similique sunt in culspana qui officia deserunt mollitia animi, id est laborum et dolorum fuga</span></p>
     </div>
 
 </div>
+<script>
+    //Make the various dynamic elements available for manipulation
+    charName = document.querySelector("span#charName");
+    charClass = document.querySelector("span#charClass");
+    charRace = document.querySelector("span#charRace");
+    charGender = document.querySelector("span#charGender");
+    charLevel = document.querySelector("span#charLevel");
+
+    strBase = document.querySelector("span#strengthBase");
+    strMod = document.querySelector("span#strengthMod");
+
+    dexBase = document.querySelector("span#dexterityBase");
+    dexMod = document.querySelector("span#dexterityMod");
+
+    conBase = document.querySelector("span#constitutionBase");
+    conMod = document.querySelector("span#constitutionMod");
+
+    intelBase = document.querySelector("span#intelligenceBase");
+    intelMod = document.querySelector("span#intelligenceMod");
+
+    wisBase = document.querySelector("span#wisdomBase");
+    wisMod = document.querySelector("span#wisdomMod");
+
+    charismaBase = document.querySelector("span#charismaBase");
+    charismaMod = document.querySelector("span#charismaMod");
+
+    charSpecialty = document.querySelector("span#charSpecialty");
+    charTrait = document.querySelector("span#charTrait");
+    charIdeals = document.querySelector("span#charIdeals");
+    charBonds = document.querySelector("span#charBonds");
+    charFlaws = document.querySelector("span#charFlaws");
+
+
+    //placeholder values while I figure out loading input from page
+    //basic descriptors
+    charName.innerHTML = "2";
+    charClass.innerHTML = "2";
+    charRace.innerHTML = "2";
+    charGender.innerHTML = "2";
+    charLevel.innerHTML = "2";
+
+    //Stats
+    strBase.innerHTML = "2";
+    strMod.innerHTML = "2";
+    dexBase.innerHTML = "2";
+    dexMod.innerHTML = "2";
+    conBase.innerHTML = "2";
+    conMod.innerHTML = "2";
+    intelBase.innerHTML = "2";
+    intelMod.innerHTML = "2";
+    wisBase.innerHTML = "2";
+    wisMod.innerHTML = "2";
+    charismaBase.innerHTML = "2";
+    charismaMod.innerHTML = "2";
+
+    //Extra  descriptors
+    charSpecialty.innerHTML = "2";
+    charTrait.innerHTML = "2";
+    charIdeals.innerHTML = "2";
+    charBonds.innerHTML = "2";
+    charFlaws.innerHTML = "2";
+</script>
 </body>
 </html>
