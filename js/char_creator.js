@@ -139,11 +139,10 @@ function saveData(){
     if (finalRace ==="" || finalGender==="" || finalName==="" || finalClass ===""|| finalBackground==="" || finalFeature ===""|| finalSpecialty==="" || finalTrait==="" || finalCharIdeals==="" || finalBond==="" || finalFlaw==="")
     {
         stopSubmit();
-       document.getElementById('submitWarning').innerHTML="You must complete all fields before moving to the Stats page"
+        alert ("You must complete all fields before moving to the Stats page");
+
     }
     else {
-        //clear the warning
-        document.getElementById('submitWarning').innerHTML="";
 
         //store the date
         localStorage.setItem('race', finalRace);
@@ -161,14 +160,6 @@ function saveData(){
         //submit the page and move to stats page
         startSubmit();
     }
-}
-
-function testStorage(){
-    let race_store = localStorage.getItem('race');
-    let bond_store = localStorage.getItem('bond');
-
-    document.getElementById('input_test').innerHTML= bond_store;
-    document.getElementById('input_test2').innerHTML= race_store;
 }
 
 /*******************************************************************************************/
@@ -190,12 +181,9 @@ function getDetails(){
         let flaw = document.getElementById('flaw').value;
 
     if (background == "" || specialty == "" || trait == "" || charIdeals =="" || bond == "" || flaw == ""){
-        document.getElementById('reveal_warning').innerHTML = "You must select a background and complete all rolls first."
+        alert("You must select a background and complete all rolls first.");
     }
     else {
-
-        //clear error message
-        document.getElementById('reveal_warning').innerHTML = "";
 
         //declare variables for the storing the results of each character detail
         let backgroundsArray, index, feature_result, specialty_result, trait_result, charIdeals_result, bond_result,
