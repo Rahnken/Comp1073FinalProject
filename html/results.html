@@ -85,7 +85,6 @@
         })
     }</script>
 </div>
-<h1>Home Page</h1>
 <div id="printTarget" >
     <div class="wrapperSpaced">
         <h2>Name: <span id="charName">John Doe</span></h2>
@@ -102,27 +101,21 @@
         <ul id="Traits" class="VList">
             <li>Strength:
                 <span id="strengthBase"> 1 </span>
-                <span id="strengthMod"> 1 </span>
             </li>
             <li>Dexterity:
                 <span id="dexterityBase"> 1 </span>
-                <span id="dexterityMod"> 1 </span>
             </li>
             <li>Constitution:
                 <span id="constitutionBase"> 1 </span>
-                <span id="constitutionMod"> 1 </span>
             </li>
             <li>Intelligence:
                 <span id="intelligenceBase"> 1 </span>
-                <span id="intelligenceMod"> 1 </span>
             </li>
             <li>Wisdom:
                 <span id="wisdomBase"> 1 </span>
-                <span id="wisdomMod"> 1 </span>
             </li>
             <li>Charisma:
                 <span id="charismaBase"> 1</span>
-                <span id="charismaMod"> 1 </span>
             </li>
         </ul>
         <ul id="Descriptors" class="VList">
@@ -146,22 +139,11 @@
     charLevel = document.querySelector("span#charLevel");
 
     strBase = document.querySelector("span#strengthBase");
-    strMod = document.querySelector("span#strengthMod");
-
     dexBase = document.querySelector("span#dexterityBase");
-    dexMod = document.querySelector("span#dexterityMod");
-
     conBase = document.querySelector("span#constitutionBase");
-    conMod = document.querySelector("span#constitutionMod");
-
     intelBase = document.querySelector("span#intelligenceBase");
-    intelMod = document.querySelector("span#intelligenceMod");
-
     wisBase = document.querySelector("span#wisdomBase");
-    wisMod = document.querySelector("span#wisdomMod");
-
     charismaBase = document.querySelector("span#charismaBase");
-    charismaMod = document.querySelector("span#charismaMod");
 
     charSpecialty = document.querySelector("span#charSpecialty");
     charTrait = document.querySelector("span#charTrait");
@@ -171,7 +153,7 @@
     charBackground = document.querySelector("span#charBackground");
     charFeature = document.querySelector("span#charFeature");
 
-    //placeholder values while I figure out loading input from page
+    //Each one of the following lines loads a value to its respective location. These values have been declared in other pages.
     //basic descriptors
     charName.innerHTML = localStorage.getItem('name');
     charClass.innerHTML = localStorage.getItem('charClass');
@@ -181,17 +163,11 @@
 
     //Stats
     strBase.innerHTML = localStorage.getItem('strength');
-    strMod.innerHTML = "2";
     dexBase.innerHTML = localStorage.getItem('dexterity');
-    dexMod.innerHTML = "2";
     conBase.innerHTML = localStorage.getItem('constitution');
-    conMod.innerHTML = "2";
     intelBase.innerHTML = localStorage.getItem('intelligence');
-    intelMod.innerHTML = "2";
     wisBase.innerHTML = localStorage.getItem('wisdom');
-    wisMod.innerHTML = "2";
     charismaBase.innerHTML = localStorage.getItem('charisma');
-    charismaMod.innerHTML = "2";
 
     //Extra  descriptors
     charSpecialty.innerHTML = localStorage.getItem('specialty');
@@ -199,7 +175,6 @@
     charIdeals.innerHTML = localStorage.getItem('charIdeals');
     charBonds.innerHTML = localStorage.getItem('bond');
     charFlaws.innerHTML = localStorage.getItem('flaw');
-
     charBackground.innerHTML= localStorage.getItem('background');
     charFeature.innerHTML= localStorage.getItem('feature');
 </script>
