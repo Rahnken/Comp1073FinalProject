@@ -41,11 +41,12 @@
      * @returns {boolean}
      */
     function validateForm(){
-        if (document.querySelector('#username').value != ""
-            && document.querySelector('#password').value != "")
+        let outPut;
+        if (document.querySelector('#username').value !== ""
+            && document.querySelector('#password').value !== "")
         {
             //If both the login or username aren't blank print this message
-            let outPut = 'Welcome ' +
+            outPut = 'Welcome ' +
                 document.querySelector('#username').value +
                 ' Your password is ' +
                 document.querySelector('#password').value;
@@ -55,7 +56,7 @@
         else
         {
             //If either of the login or username are blank print this message
-            let outPut = 'Please enter a username and password';
+            outPut = 'Please enter a username and password';
             document.querySelector('#loginOutput').innerHTML = outPut;
         }
         return false;
