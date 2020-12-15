@@ -9,7 +9,7 @@
  */
 
 
-// Create final stat vars
+// Create final stat vars and set them to zero
 let strengthFinal = 0;
 let dexterityFinal = 0;
 let constitutionFinal = 0;
@@ -21,10 +21,11 @@ let charismaFinal = 0;
 /*                                   APPLY STAT BONUSES                                    */
 /*******************************************************************************************/
 
-const dropStatsForm = document.forms['dropStats'];
-const p = document.createElement('p');
-const p2 = document.createElement('p');
+const dropStatsForm = document.forms['dropStats'];  // Select the Drop Stats form
+const p = document.createElement('p');      // Create a new p element
+const p2 = document.createElement('p');     // Create another new p element
 
+// Get the div containers which are associated with a given stat
 let strengthBonus = dropStatsForm.querySelector('#strength');
 let dexterityBonus = dropStatsForm.querySelector('#dexterity');
 let constitutionBonus = dropStatsForm.querySelector('#constitution');
@@ -32,14 +33,18 @@ let intelligenceBonus = dropStatsForm.querySelector('#intelligence');
 let wisdomBonus = dropStatsForm.querySelector('#wisdom');
 let charismaBonus = dropStatsForm.querySelector('#charisma');
 
+// Get the race data from local storage
 let charRace;
 charRace = localStorage.getItem('race').toLowerCase();
 
+/**
+ * Switch statement used to determine what stat bonuses the character will receive
+ */
 switch (charRace)   {
     case 'dragonborn':
-        p.textContent = '+ 2';
-        strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);
-        strengthFinal += 2;
+        p.textContent = '+ 2';  // Add text to the paragraph element, this is the visual of the stat bonus
+        strengthBonus.parentNode.insertBefore(p, strengthBonus.nextSibling);    // Append the paragraph element after the div element
+        strengthFinal += 2;     // Add the stat bonus to the stat
         p2.textContent = '+ 1';
         charismaBonus.parentNode.insertBefore(p2, charismaBonus.nextSibling);
         charismaFinal += 1;
@@ -112,7 +117,7 @@ switch (charRace)   {
 
         p6.textContent = '+ 1';
         charismaBonus.parentNode.insertBefore(p6, charismaBonus.nextSibling);
-        charismaFinal +=1;
+        charismaFinal += 1;
 
         break;
 
@@ -134,14 +139,28 @@ switch (charRace)   {
 /*                               DRAG AND DROP FUNCTION                                    */
 /*******************************************************************************************/
 
+/**
+ * Allow draggable elements to be dropped without
+ * submitting the form
+ * @param ev
+ */
 function allowDrop(ev) {
     ev.preventDefault();
 }
 
+/**
+ * Move elements
+ * @param ev
+ */
 function drag(ev) {
     ev.dataTransfer.setData("text", ev.target.id);
 }
 
+/**
+ * Append draged elements to droppable elements
+ * without submitting teh form
+ * @param ev
+ */
 function drop(ev) {
     ev.preventDefault();
     let data = ev.dataTransfer.getData("text");
@@ -228,6 +247,7 @@ statValuesForm.addEventListener('submit', function (e) {
 
     // Set the values to the buttons
     document.getElementById('stat1').innerHTML = stat1;
+    // Add an attribute to hold the stat number so it can be retrieved later
     document.getElementById('stat1').setAttribute("statValue", stat1);
 
     document.getElementById('stat2').innerHTML = stat2;
@@ -274,7 +294,11 @@ statValuesForm.addEventListener('submit', function (e) {
 /*******************************************************************************************/
 
 // Var is made at top of doc
+
+// Add event listener to button on form
 dropStatsForm.addEventListener('submit', function (e) {
+
+    // Check to ensure all stat divs have child nodes (values)
     if (
             !strengthBonus.hasChildNodes()
         ||  !dexterityBonus.hasChildNodes()
@@ -285,9 +309,11 @@ dropStatsForm.addEventListener('submit', function (e) {
     )
     {
         e.preventDefault();
+        // Give user a warning that data given was not correct
         document.getElementById('statSubmitError').innerHTML= "All stats need to have values";
     }
 
+    // Check that stat div elements only have 1 child node
     else if (
         strengthBonus.hasChildNodes() > 1
         ||  dexterityBonus.hasChildNodes() > 1
@@ -298,6 +324,7 @@ dropStatsForm.addEventListener('submit', function (e) {
     )
     {
         e.preventDefault();
+        // Give user a warning that data given was not correct
         document.getElementById('statSubmitError').innerHTML= "Can only have 1 value for each stat";
     }
 
@@ -311,6 +338,7 @@ dropStatsForm.addEventListener('submit', function (e) {
     let wisdom = dropStatsForm.querySelector('#wisdom').querySelector('button').getAttribute("statValue");
     let charisma = dropStatsForm.querySelector('#charisma').querySelector('button').getAttribute("statValue");
 
+    // Add numbers to final stat values
     strengthFinal += parseInt(strength);
     dexterityFinal += parseInt(dexterity);
     constitutionFinal += parseInt(constitution);
@@ -318,6 +346,7 @@ dropStatsForm.addEventListener('submit', function (e) {
     wisdomFinal += parseInt(wisdom);
     charismaFinal += parseInt(charisma);
 
+    // Print to console for testing purpose
     console.log('\nStrength: ' + strengthFinal +
         '\ndexterity: ' + dexterityFinal +
         '\nconstitution: ' + constitutionFinal +
@@ -326,10 +355,10 @@ dropStatsForm.addEventListener('submit', function (e) {
         '\ncharisma: ' + charismaFinal
     );
 
-        //clear the warning
+        // Clear the warning
         document.getElementById('statSubmitError').innerHTML="";
 
-        //store the data
+        // Store the data
         localStorage.setItem('strength', strengthFinal);
         localStorage.setItem('dexterity', dexterityFinal);
         localStorage.setItem('constitution', constitutionFinal);
