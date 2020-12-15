@@ -286,6 +286,7 @@ statValuesForm.addEventListener('submit', function (e) {
     //     button.setAttribute("statValue", statArray[i]);   // Add stat value attribute
     //     button.setAttribute("ondragstart", "drag(event)");
     // }
+
 });
 
 
