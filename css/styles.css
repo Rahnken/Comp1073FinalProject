@@ -29,7 +29,67 @@ header {
     flex-direction: row-reverse;
     justify-content: center;
 }
+/*      Print Page Styles */
 
+#printTarget{
+    background-color: #EFE9DD;
+    width: 60%;
+    color:black;
+    padding: 10px;
+    margin: 10px auto;
+}
+/*Fills the space between elements*/
+.wrapperSpaced {
+    display:flex;
+    justify-content:space-around;
+}
+.wrapperLeft{
+    display:flex;
+    justify-content: left;
+}
+/*Make headers bold*/
+ul li {
+    font-weight: bold;
+}
+/*Make normal information normal*/
+ul li span {
+    font-weight: normal;
+}
+
+/*Vertical list*/
+ul.VList{
+    display: flex;
+    flex-direction: column;
+    margin-right: 1em;
+}
+
+ul.VList li {
+    display: block;
+    margin-bottom: 1em;
+}
+
+/* Horizontal list */
+ul.HList li{
+    display: inline;
+    margin-right: 2em;
+}
+ul.HList li:last-of-type{
+    margin-right: 0;
+}
+ul#Traits{
+    justify-content: center;
+}
+
+ul#Traits li{
+    text-align: center;
+    border: 3px solid #693007;
+    height: 70px ;
+}
+ul#Traits li span{
+    display: block;
+    font-size: 35px;
+    padding-top: 5%;
+}
 
 /*********************** Main Styles End here ********************************/
 /************** Nav Styles Starting Here ****************************/
