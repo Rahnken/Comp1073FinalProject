@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!-- Main Author: Michael Caldwell, 200445010 !-->
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -17,15 +18,48 @@
 </div>
 
 <h1>Login</h1>
+<form name="loginForm" onsubmit="return validateForm()">
 
-<p>
-    <label for="username">Username: </label>
+    <label >Username:
     <input type="text" id="username" name="username">
-</p>
-<p>
-    <label for="password">Password: </label>
+    </label>
+    <br>
+
+    <label>Password:
     <input type="password" id="password" name="password">
-</p>
+    </label>
+    <br>
+
+    <input type="submit" value="Login">
+    <p id="loginOutput"></p>
+</form>
 
 </body>
+<script>
+    /***
+     * Checks if username and login are not blank, displays differing messages in each case
+     * @returns {boolean}
+     */
+    function validateForm(){
+        let outPut;
+        if (document.querySelector('#username').value !== ""
+            && document.querySelector('#password').value !== "")
+        {
+            //If both the login or username aren't blank print this message
+            outPut = 'Welcome ' +
+                document.querySelector('#username').value +
+                ' Your password is ' +
+                document.querySelector('#password').value;
+
+            document.querySelector('#loginOutput').innerHTML = outPut;
+        }
+        else
+        {
+            //If either of the login or username are blank print this message
+            outPut = 'Please enter a username and password';
+            document.querySelector('#loginOutput').innerHTML = outPut;
+        }
+        return false;
+    }
+</script>
 </html>
