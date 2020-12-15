@@ -39,8 +39,8 @@ function firstNameValidation() {
         return false;
     }
     else {
-        document.getElementById("fname_error_text").innerHTML = "";
-        return true;
+        document.getElementById("fname_error_text").innerHTML = "Your first name is "+  fname;
+        return false;
     }
 }
 
@@ -52,8 +52,8 @@ function lastNameValidation() {
         return false;
     }
     else {
-        document.getElementById("lname_error_text").innerHTML = "";
-        return true;
+        document.getElementById("lname_error_text").innerHTML = "Your last name is " + lname;
+        return false;
     }
 }
 
@@ -71,8 +71,8 @@ function usernameValidation() {
     }
     else
     {
-        document.getElementById("username_error_text").innerHTML = "";
-        return true;
+        document.getElementById("username_error_text").innerHTML = "Your username is " + username;
+        return false;
     }
 }
 
@@ -84,8 +84,8 @@ function passwordValidation() {
         return false;
     }
     else {
-        document.getElementById("password_error_text").innerHTML = "";
-        return true;
+        document.getElementById("password_error_text").innerHTML = "Your password is " + password;
+        return false;
     }
 }
 
@@ -97,7 +97,7 @@ function emailValidation() {
         return false;
     }
     else {
-        document.getElementById("email_error_text").innerHTML = "";
-        return true;
+        document.getElementById("email_error_text").innerHTML = "Your email is " + email;
+        return false;
     }
 }
