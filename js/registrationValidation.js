@@ -72,7 +72,6 @@ function usernameValidation() {
     else
     {
         document.getElementById("username_error_text").innerHTML = "Your username is " + username;
-        console.log("Meme" + username);
         return false;
     }
 }
